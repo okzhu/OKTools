@@ -4,6 +4,10 @@
 
 [![Build Status](https://www.travis-ci.org/okzhu/OKTools.svg?branch=master)](https://www.travis-ci.org/okzhu/OKTools)
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=okzhu_OKTools&metric=alert_status)](https://sonarcloud.io/dashboard?id=okzhu_OKTools)
+
+
+
 # OKTools
 
 ## License
