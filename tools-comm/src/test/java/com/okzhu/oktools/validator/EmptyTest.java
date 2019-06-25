@@ -11,25 +11,25 @@ public class EmptyTest {
 
 
     @Test
-    void isEmptyObject() {
+    public void isEmptyObject() {
         Object obj = null;
         Assert.assertTrue(Empty.isEmpty(obj));
     }
 
     @Test
-    void isEmptyCollection() {
+    public void isEmptyCollection() {
         ArrayList<Object> list = new ArrayList<Object>();
         Assert.assertTrue(Empty.isEmpty(list));
     }
 
     @Test
-    void isEmptyMap() {
+    public void isEmptyMap() {
         HashMap<String, String> map = new HashMap<String, String>();
         Assert.assertTrue(Empty.isEmpty(map));
     }
 
     @Test
-    void isEmptyCharSequence() {
+    public void isEmptyCharSequence() {
         String str = "";
         Assert.assertTrue(Empty.isEmpty(str));
     }

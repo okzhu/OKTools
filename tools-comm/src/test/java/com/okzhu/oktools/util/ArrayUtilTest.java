@@ -6,13 +6,13 @@ import org.junit.jupiter.api.Test;
 class ArrayUtilTest {
 
     @Test
-    void newArray() {
+    public void newArray() {
         String[] arr = ArrayUtil.newArray(String.class, 0);
         Assert.assertEquals(arr.length, 0);
     }
 
     @Test
-    void toArray() {
+    public void toArray() {
     }
 
 
