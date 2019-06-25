@@ -1,3 +1,11 @@
+dist: trusty
 language: java
+
+addons:
+  sonarcloud:
+    organization: "$SONAR_ORG"
+    token:
+      secure: "$SONAR_TOKEN"
+
 after_success:
 - bash <(curl -s https://codecov.io/bash)
