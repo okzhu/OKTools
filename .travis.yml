@@ -1,11 +1,14 @@
 dist: trusty
 language: java
 
-addons:
-  sonarcloud:
-    organization: "$SONAR_ORG"
-    token:
-      secure: "$SONAR_TOKEN"
+script:
+  - mvn install -Dmaven.test.skip=true
+  - mvn sonar:sonar -Dsonar.projectKey=okzhu_OKTools  -Dsonar.organization=okzhu-github   -Dsonar.host.url=https://sonarcloud.io   -Dsonar.login=3410571e760f0b773c8b06d703526f8a0347b72d
+
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
 
 after_success:
 - bash <(curl -s https://codecov.io/bash)
