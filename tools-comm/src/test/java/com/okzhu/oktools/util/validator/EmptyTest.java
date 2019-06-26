@@ -1,4 +1,4 @@
-package com.okzhu.oktools.validator;
+package com.okzhu.oktools.util.validator;
 
 
 import org.junit.Assert;
@@ -9,23 +9,10 @@ import java.util.HashMap;
 
 public class EmptyTest {
 
-
-    @Test
-    public void isEmptyObject() {
-        Object obj = null;
-        Assert.assertTrue(Empty.isEmpty(obj));
-    }
-
     @Test
     public void isEmptyCollection() {
         ArrayList<Object> list = new ArrayList<Object>();
         Assert.assertTrue(Empty.isEmpty(list));
-    }
-
-    @Test
-    public void isEmptyMap() {
-        HashMap<String, String> map = new HashMap<String, String>();
-        Assert.assertTrue(Empty.isEmpty(map));
     }
 
     @Test
