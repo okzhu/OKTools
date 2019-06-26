@@ -1,11 +1,9 @@
 package com.okzhu.oktools.util.validator;
 
-import com.okzhu.oktools.util.type.*;
+import com.okzhu.oktools.util.type.CollectionUtil;
+import com.okzhu.oktools.util.type.StringUtil;
 
 import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 /**
  *
