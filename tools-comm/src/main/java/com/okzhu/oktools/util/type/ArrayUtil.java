@@ -23,7 +23,7 @@ public class ArrayUtil {
      * 判断是否不为空.
      */
     public static <T> boolean isNotEmpty(T[] arr) {
-        return (arr != null) && !(arr.length == 0);
+        return (arr != null) && (arr.length != 0);
     }
 
 }

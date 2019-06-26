@@ -13,6 +13,14 @@ import java.util.Set;
 public class Empty {
 
     /**
+     * @throws IllegalStateException
+     */
+    private Empty() {
+        throw new IllegalStateException("Empty class");
+    }
+
+
+    /**
      * @param collection
      * @return
      */

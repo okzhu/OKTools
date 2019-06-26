@@ -5,13 +5,13 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
 
 public class EmptyTest {
 
     @Test
     public void isEmptyCollection() {
-        ArrayList<Object> list = new ArrayList<Object>();
+        List<Object> list = new ArrayList<Object>();
         Assert.assertTrue(Empty.isEmpty(list));
     }
 

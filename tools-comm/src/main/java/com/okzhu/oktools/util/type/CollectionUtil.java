@@ -1,15 +1,9 @@
 package com.okzhu.oktools.util.type;
 
-import com.google.common.collect.Iterables;
-import com.google.common.collect.Iterators;
-import com.google.common.collect.Ordering;
-import org.apache.commons.lang3.tuple.Pair;
-
-import java.lang.reflect.Array;
-import java.util.*;
+import java.util.Collection;
 
 /**
- *   通用 Collection 的工具集
+ * 通用 Collection 的工具集
  */
 public class CollectionUtil {
 
