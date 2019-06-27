@@ -6,19 +6,19 @@ jobs:
     docker:
     - image: circleci/openjdk:8u181-jdk
     steps:
-    - checkout
-    - restore_cache:
+      - checkout
+      - restore_cache:
+          key: OKTools-{{ checksum "pom.xml" }}
+      - run: mvn clean package
+      - save_cache: # saves the project dependencies
+        paths:
+        - ~/.m2
         key: OKTools-{{ checksum "pom.xml" }}
-    - run: mvn clean package
-    - save_cache: # saves the project dependencies
-      paths:
-      - ~/.m2
-      key: OKTools-{{ checksum "pom.xml" }}
-    - store_artifacts:
-        path: artifacts
-        destination: build
-    - store_test_results:
-      path: test-results
+      - store_artifacts:
+          path: artifacts
+          destination: build
+      - store_test_results:
+        path: test-results
 
 workflows:
   version: 2
