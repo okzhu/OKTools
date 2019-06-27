@@ -8,9 +8,6 @@ jobs:
     steps:
       - checkout
       - run: mvn clean package
-      - store_artifacts:
-        path: artifacts
-        destination: build
       - store_test_results:
         path: test-results
 
