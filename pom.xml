@@ -18,6 +18,7 @@
     </modules>
 
     <!--        mvn clean verify dependency:analyze project-info-reports:dependencies-->
+    <!--        mvn clean install test -->
     <!--        mvn versions:set -DnewVersion=0.0.1-->
 
     <description>内部使用 暂时不对外发布</description>

@@ -1,4 +1,5 @@
 version: 2
+
 jobs:
   build:
     working_directory: ~/OKTools
@@ -13,7 +14,7 @@ jobs:
         paths:
           - ~/.m2
         key: OKTools-{{ checksum "pom.xml" }}
-    - run: mvn test
+    - run: mvn clean install test
 
 workflows:
   version: 2
