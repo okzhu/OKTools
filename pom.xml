@@ -11,15 +11,35 @@
 
     <modules>
 
-        <module>tools-netty</module>
+        <module>tools-copyist</module>
+
         <module>tools-comm</module>
 
     </modules>
 
-    <description>
-        mvn versions:set -DnewVersion=0.0.1
-    </description>
+    <!--        mvn clean verify dependency:analyze project-info-reports:dependencies-->
+    <!--        mvn versions:set -DnewVersion=0.0.1-->
 
+    <description>内部使用 暂时不对外发布</description>
+    <url>https://github.com/okzhu/OKTools</url>
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <id>fallboy</id>
+            <name>fallboy</name>
+            <email>fallboy@163.com</email>
+        </developer>
+    </developers>
+    <scm>
+        <connection>scm:git:https://github.com/okzhu/OKTools.git</connection>
+        <developerConnection>scm:git:https://github.com/okzhu/OKTools.git</developerConnection>
+        <url>https://github.com/okzhu/OKTools</url>
+    </scm>
 
     <properties>
         <jdk.version>1.8</jdk.version>
@@ -30,6 +50,27 @@
         <!--ActiveMQXAConnectionFactory-->
     </properties>
 
+
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-launcher</artifactId>
+            <version>1.4.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.4.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <version>5.4.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <resources>
@@ -54,15 +95,19 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.1.0</version>
-                <configuration>
-                </configuration>
+                <version>${maven.javadoc.plugin.version}</version>
             </plugin>
 
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
                 <version>3.6.0.1398</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.1</version>
             </plugin>
 
             <plugin>

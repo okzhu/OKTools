@@ -1,6 +1,7 @@
 package com.okzhu.oktools.util.validator;
 
 
+import com.okzhu.oktools.copyist.lucene.util.RamUsageEstimator;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -20,6 +21,16 @@ public class EmptyTest {
         String str = "";
         Assert.assertTrue(Empty.isEmpty(str));
     }
+
+    @Test
+    public void testssss() {
+        List<Object> list = new ArrayList<Object>();
+        long df = RamUsageEstimator.shallowSizeOf(list);
+        System.out.println(df);
+
+    }
+
+
 
 
 }

@@ -8,23 +8,22 @@ import java.util.Collection;
 public class CollectionUtil {
 
     /**
-     * @throws IllegalStateException
+     *
      */
     private CollectionUtil() {
-        throw new IllegalStateException("CollectionUtil class");
     }
 
     /**
      * 判断是否为空.
      */
-    public static boolean isEmpty(Collection<?> collection) {
+    public static boolean isEmpty(final Collection<?> collection) {
         return (collection == null) || collection.isEmpty();
     }
 
     /**
      * 判断是否不为空.
      */
-    public static boolean isNotEmpty(Collection<?> collection) {
+    public static boolean isNotEmpty(final Collection<?> collection) {
         return (collection != null) && !(collection.isEmpty());
     }
 

@@ -6,13 +6,24 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class CollectionUtilTest {
+
+
+    @Test
+    void isEmptyNull() {
+        Assert.assertTrue(CollectionUtil.isEmpty(null));
+    }
 
     @Test
     void isEmpty() {
         Assert.assertTrue(CollectionUtil.isEmpty(new ArrayList<>()));
+    }
+
+    @Test
+    void isEmpty1() {
+        List<String> list = new ArrayList<String>();
+        list.add("");
+        Assert.assertFalse(CollectionUtil.isEmpty(list));
     }
 
     @Test
@@ -21,4 +32,5 @@ class CollectionUtilTest {
         list.add("");
         Assert.assertTrue(CollectionUtil.isNotEmpty(list));
     }
+
 }

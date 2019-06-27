@@ -8,10 +8,9 @@ import org.apache.commons.lang3.StringUtils;
 public class StringUtil {
 
     /**
-     * @throws IllegalStateException
+     *
      */
     private StringUtil() {
-        throw new IllegalStateException("StringUtil class");
     }
 
     /**

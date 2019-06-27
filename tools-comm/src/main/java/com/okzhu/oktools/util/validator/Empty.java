@@ -11,10 +11,9 @@ import java.util.Collection;
 public class Empty {
 
     /**
-     * @throws IllegalStateException
+     *
      */
     private Empty() {
-        throw new IllegalStateException("Empty class");
     }
 
 

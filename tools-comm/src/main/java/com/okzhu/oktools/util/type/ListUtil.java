@@ -8,23 +8,22 @@ import java.util.List;
 public class ListUtil {
 
     /**
-     * @throws IllegalStateException
+     *
      */
     private ListUtil() {
-        throw new IllegalStateException("ListUtil class");
     }
 
     /**
      * 判断是否为空.
      */
-    public static boolean isEmpty(List<?> list) {
+    public static boolean isEmpty(final List<?> list) {
         return (list == null) || list.isEmpty();
     }
 
     /**
      * 判断是否不为空.
      */
-    public static boolean isNotEmpty(List<?> list) {
+    public static boolean isNotEmpty(final List<?> list) {
         return (list != null) && !(list.isEmpty());
     }
 

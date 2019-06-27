@@ -9,10 +9,9 @@ public class SetUtil {
 
 
     /**
-     * @throws IllegalStateException
+     *
      */
     private SetUtil() {
-        throw new IllegalStateException("SetUtil class");
     }
 
     /**

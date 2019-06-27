@@ -8,10 +8,9 @@ import java.util.Map;
 public class MapUtil {
 
     /**
-     * @throws IllegalStateException
+     *
      */
     private MapUtil() {
-        throw new IllegalStateException("MapUtil class");
     }
 
     /**
