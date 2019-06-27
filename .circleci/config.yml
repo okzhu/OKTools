@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  build:
+
+    working_directory: ~/OKTools
+
+    docker:
+    - image: circleci/openjdk:8-jdk-browsers
+
+    steps:
+
+      - checkout
+
+      - run: mvn clean verify dependency:analyze project-info-reports:dependencies
+
+      - run: mvn test
