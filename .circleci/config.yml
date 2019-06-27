@@ -10,8 +10,8 @@ jobs:
         key: OKTools-{{ checksum "pom.xml" }}
     - run: mvn dependency:go-offline # gets the project dependencies
     - save_cache: # saves the project dependencies
-      paths:
-        - ~/.m2
+        paths:
+          - ~/.m2
         key: OKTools-{{ checksum "pom.xml" }}
     - run: mvn test
 
