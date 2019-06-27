@@ -5,6 +5,10 @@
 | travis | [![Build Status](https://www.travis-ci.org/okzhu/OKTools.svg?branch=master)](https://www.travis-ci.org/okzhu/OKTools) |
 | circleci | [![CircleCI](https://circleci.com/gh/okzhu/OKTools.svg?style=svg)](https://circleci.com/gh/okzhu/OKTools) |
 | sonarcloud | [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=okzhu_OKTools&metric=alert_status)](https://sonarcloud.io/dashboard?id=okzhu_OKTools) |
+| codebeat | [![codebeat badge](https://codebeat.co/badges/7c3764f7-305a-44e4-8041-b39c66a64abb)](https://codebeat.co/projects/github-com-okzhu-oktools-master)  |
+| codeclimate | [![Maintainability](https://api.codeclimate.com/v1/badges/c9c61930d191091adeba/maintainability)](https://codeclimate.com/github/okzhu/OKTools/maintainability)  |
+| scrutinizer | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/okzhu/OKTools/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/okzhu/OKTools/?branch=master)  |
+
 
 # OKTools
 
