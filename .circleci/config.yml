@@ -11,6 +11,4 @@ jobs:
 
       - checkout
 
-      - run: mvn clean verify dependency:analyze project-info-reports:dependencies
-
       - run: mvn test
