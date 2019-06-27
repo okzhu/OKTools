@@ -6,7 +6,14 @@ import com.okzhu.oktools.copyist.lucene.util.RamUsageEstimator;
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryUsage;
 
+/**
+ *
+ */
 public class MemoryUsageEstimator {
+
+    private MemoryUsageEstimator() {
+    }
+
 
     public static MemoryUsage getMemoryUseInfo() {
         return ManagementFactory.getMemoryMXBean().getHeapMemoryUsage();

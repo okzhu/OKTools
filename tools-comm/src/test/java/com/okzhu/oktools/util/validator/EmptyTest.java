@@ -28,6 +28,8 @@ public class EmptyTest {
         long df = RamUsageEstimator.shallowSizeOf(list);
         System.out.println(df);
 
+        Assert.assertTrue(true);
+
     }
 
 
