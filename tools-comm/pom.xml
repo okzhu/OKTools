@@ -18,11 +18,6 @@
 
 		<dependency>
 			<groupId>com.okzhu.oktools</groupId>
-			<artifactId>tools-lucene</artifactId>
-			<version>0.0.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.okzhu.oktools</groupId>
 			<artifactId>tools-netty</artifactId>
 			<version>0.0.1</version>
 		</dependency>
