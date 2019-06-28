@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- *
+ * @see com.okzhu.oktools.util.type.CollectionUtil
  */
 class CollectionUtilTest {
     @Test
@@ -20,20 +20,32 @@ class CollectionUtilTest {
 /**
  * @see com.okzhu.oktools.util.type.CollectionUtil#isEmpty(Collection)
  */
-class CollectionUtilisEmptyTest {
+class CollectionUtilIsEmptyTest {
 
+    /**
+     * 判断 {@link java.util.Collection} 为空
+     * 入参为 null 时 返回 true
+     */
     @Test
     void isEmptyNull() {
         Assert.assertTrue(CollectionUtil.isEmpty(null));
     }
 
+    /**
+     * 判断 {@link java.util.Collection} 为空
+     * 入参为 数组长度为 0  时 返回 true
+     */
     @Test
-    void isEmpty() {
+    void isEmptyLengthZero() {
         Assert.assertTrue(CollectionUtil.isEmpty(new ArrayList<>()));
     }
 
+    /**
+     * 判断 {@link java.util.Collection} 为空
+     * 入参为 数组长度不为 0  时 返回 false
+     */
     @Test
-    void isEmpty1() {
+    void isEmptyLengthNotZero() {
         List<String> list = new ArrayList<String>();
         list.add("");
         Assert.assertFalse(CollectionUtil.isEmpty(list));
@@ -44,20 +56,32 @@ class CollectionUtilisEmptyTest {
 /**
  * @see com.okzhu.oktools.util.type.CollectionUtil#isNotEmpty(Collection)
  */
-class CollectionUtilisNotEmptyTest {
+class CollectionUtilIsNotEmptyTest {
 
+    /**
+     * 判断 {@link java.util.Collection} 不为空
+     * 入参为 null 时 返回 false
+     */
     @Test
     void isNotEmptyNull() {
         Assert.assertFalse(CollectionUtil.isNotEmpty(null));
     }
 
+    /**
+     * 判断 {@link java.util.Collection} 不为空
+     * 入参为 数组长度为 0  时 返回 false
+     */
     @Test
-    void isNotEmpty() {
+    void isNotEmptyLengthZero() {
         Assert.assertFalse(CollectionUtil.isNotEmpty(new ArrayList<>()));
     }
 
+    /**
+     * 判断 {@link java.util.Collection} 不为空
+     * 入参为 数组长度不为 0  时 返回 true
+     */
     @Test
-    void isNotEmpty1() {
+    void isNotEmptyLengthNotZero() {
         List<String> list = new ArrayList<String>();
         list.add("");
         Assert.assertTrue(CollectionUtil.isNotEmpty(list));
