@@ -1,7 +1,7 @@
 package com.okzhu.oktools.util.validator;
 
 
-import com.okzhu.oktools.copyist.lucene.util.RamUsageEstimator;
+import com.carrotsearch.sizeof.RamUsageEstimator;
 import org.junit.Assert;
 import org.junit.Test;
 
