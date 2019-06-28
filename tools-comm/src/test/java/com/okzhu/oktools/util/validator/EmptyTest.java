@@ -8,9 +8,6 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @see com.okzhu.oktools.util.validator.Empty
- */
 public class EmptyTest {
 
     @Test

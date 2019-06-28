@@ -11,7 +11,7 @@ import java.util.Collection;
 public class Empty {
 
     /**
-     *
+     * 不允许 new
      */
     private Empty() {
     }

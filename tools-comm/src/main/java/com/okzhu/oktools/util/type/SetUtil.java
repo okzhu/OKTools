@@ -9,7 +9,7 @@ public class SetUtil {
 
 
     /**
-     *
+     * 不允许 new
      */
     private SetUtil() {
     }

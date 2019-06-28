@@ -8,7 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 public class StringUtil {
 
     /**
-     *
+     * 不允许 new
      */
     private StringUtil() {
     }

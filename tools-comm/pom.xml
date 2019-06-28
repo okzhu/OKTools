@@ -39,6 +39,14 @@
 			<version>28.0-jre</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.carrotsearch</groupId>
+			<artifactId>java-sizeof</artifactId>
+			<version>0.0.5</version>
+			<scope>test</scope>
+		</dependency>
+
+
 	</dependencies>
 
 	

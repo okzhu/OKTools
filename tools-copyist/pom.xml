@@ -13,7 +13,7 @@
 
     <modules>
 
-        <module>tools-lucene</module>
+        <!--        <module>tools-lucene</module>-->
         <module>tools-netty</module>
 
     </modules>

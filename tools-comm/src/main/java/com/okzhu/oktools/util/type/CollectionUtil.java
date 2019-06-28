@@ -8,7 +8,7 @@ import java.util.Collection;
 public class CollectionUtil {
 
     /**
-     *
+     * 不允许 new
      */
     private CollectionUtil() {
     }

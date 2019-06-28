@@ -8,7 +8,7 @@ import java.util.Map;
 public class MapUtil {
 
     /**
-     *
+     * 不允许 new
      */
     private MapUtil() {
     }
