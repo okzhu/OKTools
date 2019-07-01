@@ -3,6 +3,10 @@ package com.okzhu.oktools.util.type;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 /**
  * @see com.okzhu.oktools.util.type.ArrayUtil
  */
@@ -95,5 +99,52 @@ class ArrayUtilIsNotEmptyTest {
 
     }
 
+}
+
+/**
+ * @see com.okzhu.oktools.util.type.ArrayUtil#newArray(Class, int)
+ */
+class ArrayUtilNewArrayTest {
+
+    /**
+     * 根据传入的 {@link java.lang.Class} 和长度创建数组
+     */
+    @Test
+    void newArray() {
+        String[] strs = ArrayUtil.newArray(String.class, 0);
+        Assert.assertArrayEquals(strs, new String[0]);
+    }
+}
+
+/**
+ * @see com.okzhu.oktools.util.type.ArrayUtil#toArray(Collection, Class)
+ */
+class ArrayUtilToArrayTest {
+
+    @Test
+    void toArray() {
+        List<String> list = new ArrayList<String>();
+        String[] arr = ArrayUtil.toArray(list, String.class);
+        Assert.assertArrayEquals(arr, new String[0]);
+    }
+
+}
+
+/**
+ * @see com.okzhu.oktools.util.type.ArrayUtil#toArray(Collection, Class)
+ */
+class ArrayUtilconcatTest {
+
+    @Test
+    void concat() {
+        String[] strs = ArrayUtil.newArray(String.class, 0);
+        strs = ArrayUtil.concat("1", strs);
+        Assert.assertTrue(strs.length == 1);
+        Assert.assertTrue(strs[0].equals("1"));
+
+        strs = ArrayUtil.concat(strs, "2");
+        Assert.assertTrue(strs.length == 2);
+        Assert.assertTrue(strs[1].equals("2"));
+    }
 
 }

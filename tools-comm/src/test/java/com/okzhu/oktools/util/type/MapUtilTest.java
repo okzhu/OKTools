@@ -16,12 +16,6 @@ class MapUtilTest {
         Assert.assertTrue(true);
     }
 
-    @Test
-    void isNotEmpty() {
-        Map<Object, Object> map = new HashMap<>();
-        map.put("a","b");
-        Assert.assertTrue(MapUtil.isNotEmpty(map));
-    }
 }
 
 /**
@@ -94,3 +88,4 @@ class MapUtilIsNotEmptyTest {
     }
 
 }
+
