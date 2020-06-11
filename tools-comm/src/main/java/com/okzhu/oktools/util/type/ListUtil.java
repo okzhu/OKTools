@@ -1,5 +1,6 @@
 package com.okzhu.oktools.util.type;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -25,6 +26,17 @@ public class ListUtil {
      */
     public static boolean isNotEmpty(final List<?> list) {
         return (list != null) && !(list.isEmpty());
+    }
+
+    /**
+     * 返回一个空的结构特殊的List，节约空间.
+     *
+     * 注意返回的List不可写, 写入会抛出UnsupportedOperationException.
+     *
+     * @see java.util.Collections#emptyList()
+     */
+    public static final <T> List<T> emptyList() {
+        return Collections.emptyList();
     }
 
 }

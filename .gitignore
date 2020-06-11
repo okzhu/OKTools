@@ -1,7 +1,10 @@
-*.iml
 log/
 .idea/*
 
+node_modules/*
+package-lock.json
+
+*.iml
 */target/*
 */*/target/*
 /target/*
