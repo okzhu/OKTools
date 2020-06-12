@@ -1,0 +1,21 @@
+{
+  "name": "OKTools",
+  "version": "0.0.1",
+  "scripts": {
+    "gitcz": "git-cz --type=feat",
+    "release": "standard-version"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "git-cz": "^4.6.2",
+    "standard-version": "^8.0.0",
+    "husky": "^4.2.5"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}
