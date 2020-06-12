@@ -1,1 +1,1 @@
-package com.github.okzhu.toolkit.util.type;
+package com.github.okzhu.toolkit.base.type;

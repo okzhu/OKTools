@@ -1,30 +1,29 @@
-package com.github.okzhu.toolkit.util.id;
+package com.github.okzhu.toolkit.base.id;
 
+import java.security.SecureRandom;
 import java.util.Random;
 
 /**
  * Created by kaiqian.zhu on 2018/2/1.
+ * 注意 闰秒回拨
  */
 public class IdWorker {
-
-    private final long workerId;
-    private final long dataCenterId;
-    private final long idEpoch;
 
     private static final long workerIdBits = 5L;
     private static final long datacenterIdBits = 5L;
     private static final long maxWorkerId = -1L ^ (-1L << workerIdBits);
     private static final long maxDatacenterId = -1L ^ (-1L << datacenterIdBits);
-
     private static final long sequenceBits = 12L;
     private static final long workerIdShift = sequenceBits;
     private static final long datacenterIdShift = sequenceBits + workerIdBits;
     private static final long timestampLeftShift = sequenceBits + workerIdBits + datacenterIdBits;
     private static final long sequenceMask = -1L ^ (-1L << sequenceBits);
-
+    private static final Random r = new SecureRandom();
+    private final long workerId;
+    private final long dataCenterId;
+    private final long idEpoch;
     private long lastTimestamp = -1L;
     private long sequence;
-    private static final Random r = new Random();
 
     public IdWorker() {
         this(1517414400000L);
@@ -71,8 +70,7 @@ public class IdWorker {
     }
 
     public long getId() {
-        long id = nextId();
-        return id;
+        return nextId();
     }
 
     private synchronized long nextId() {
@@ -89,11 +87,11 @@ public class IdWorker {
             sequence = 0;
         }
         lastTimestamp = timestamp;
-        long id = ((timestamp - idEpoch) << timestampLeftShift)//
+
+        return ((timestamp - idEpoch) << timestampLeftShift)//
                 | (dataCenterId << datacenterIdShift)//
                 | (workerId << workerIdShift)//
                 | sequence;
-        return id;
     }
 
     /**

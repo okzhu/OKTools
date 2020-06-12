@@ -1,4 +1,4 @@
-package com.github.okzhu.toolkit.util.time;
+package com.github.okzhu.toolkit.base.time;
 
 import java.util.Date;
 

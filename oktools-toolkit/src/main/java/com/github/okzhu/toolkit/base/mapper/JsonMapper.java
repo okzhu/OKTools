@@ -1,4 +1,4 @@
-package com.github.okzhu.toolkit.util.mapper;
+package com.github.okzhu.toolkit.base.mapper;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;

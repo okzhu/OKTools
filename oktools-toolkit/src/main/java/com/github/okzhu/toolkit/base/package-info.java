@@ -1,4 +1,4 @@
 /**
  *
  */
-package com.github.okzhu.toolkit.util;
+package com.github.okzhu.toolkit.base;

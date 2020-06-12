@@ -1,4 +1,4 @@
-package com.github.okzhu.toolkit.util.text;
+package com.github.okzhu.toolkit.base.text;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;

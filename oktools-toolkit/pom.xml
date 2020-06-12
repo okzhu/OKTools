@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.okzhu.oktools</groupId>
-		<artifactId>tools-parent</artifactId>
+		<groupId>com.github.okzhu</groupId>
+		<artifactId>oktools-parent</artifactId>
         <version>0.0.1</version>
 	</parent>
 
-	<artifactId>tools-comm</artifactId>
+	<artifactId>oktools-toolkit</artifactId>
 
 	<properties>
 
@@ -21,6 +21,44 @@
 <!--			<artifactId>tools-netty</artifactId>-->
 <!--			<version>0.0.1</version>-->
 <!--		</dependency>-->
+
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>1.6.0</version>
+			<scope>compile</scope>
+			<optional>true</optional>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.12.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.8</version>
+			<scope>compile</scope>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>6.1.5.Final</version>
+			<scope>compile</scope>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.10.3</version>
+			<scope>compile</scope>
+			<optional>true</optional>
+		</dependency>
 
 		<dependency>
 			<groupId>org.apache.commons</groupId>
@@ -49,8 +87,20 @@
 			<version>2.9.10.4</version>
 			<optional>true</optional>
 		</dependency>
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib-nodep</artifactId>
+			<version>2.2.2</version>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>5.2.4.RELEASE</version>
+			<optional>true</optional>
+		</dependency>
 
-<!--		<dependency>-->
+		<!--		<dependency>-->
 <!--			<groupId>org.eclipse.collections</groupId>-->
 <!--			<artifactId>eclipse-collections-api</artifactId>-->
 <!--			<version>9.2.0</version>-->

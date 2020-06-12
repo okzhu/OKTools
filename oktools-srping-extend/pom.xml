@@ -3,12 +3,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.okzhu.oktools</groupId>
-        <artifactId>tools-parent</artifactId>
+        <groupId>com.github.okzhu</groupId>
+        <artifactId>oktools-parent</artifactId>
         <version>0.0.1</version>
     </parent>
 
-    <artifactId>tools-copyist</artifactId>
+    <artifactId>oktools-srping-extend</artifactId>
     <packaging>pom</packaging>
 
     <modules>

@@ -1,4 +1,4 @@
-package com.github.okzhu.toolkit.util.validator;
+package com.github.okzhu.toolkit.base.validator;
 
 /**
  * 参数校验统一使用Apache Common Lang Validate, 补充一些缺少的.

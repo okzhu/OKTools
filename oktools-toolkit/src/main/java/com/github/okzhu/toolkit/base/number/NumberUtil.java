@@ -1,4 +1,4 @@
-package com.github.okzhu.toolkit.util.number;
+package com.github.okzhu.toolkit.base.number;
 
 import com.google.common.primitives.Ints;
 import com.google.common.primitives.Longs;

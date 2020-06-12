@@ -1,4 +1,4 @@
-package com.github.okzhu.toolkit.util.id;
+package com.github.okzhu.toolkit.base.id;
 
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;

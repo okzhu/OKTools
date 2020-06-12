@@ -1,4 +1,4 @@
-package com.github.okzhu.toolkit.util.type;
+package com.github.okzhu.toolkit.base.type;
 
 import java.util.Collections;
 import java.util.List;

@@ -1,11 +1,9 @@
 package com.github.okzhu.toolkit.base.mapper;
 
-import com.github.okzhu.toolkit.base.util.BeanCopierUtil;
+import java.util.concurrent.ExecutionException;
 
 public interface IBeanCopier {
 
-        IBeanCopier create(Class source, Class target);
-
-        void copy(Object var1, Object var2);
+   void copy(Object var1, Object var2) throws ExecutionException;
 
 }

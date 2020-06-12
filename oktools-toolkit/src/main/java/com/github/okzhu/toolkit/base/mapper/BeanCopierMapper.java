@@ -1,91 +1,32 @@
 package com.github.okzhu.toolkit.base.mapper;
 
-import com.github.okzhu.toolkit.base.mapper.IBeanCopier;
-import net.sf.cglib.beans.BeanCopier;
 
-import java.util.HashMap;
+import lombok.extern.log4j.Log4j2;
+
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.ExecutionException;
 
+
+@Log4j2
 public class BeanCopierMapper {
 
-    private static Lock initLock = new ReentrantLock();
 
-    private static Map<String, BeanCopier> beanCopierMap = new HashMap<String, BeanCopier>();
+    private static IBeanCopier iBeanCopier;
 
-    public static final IBeanCopier BEAN_COPIER;
 
     static {
-        IBeanCopier beanCopier;
         try {
-            //boot2
-            Class.forName("org.springframework.boot.context.properties.bind.Binder");
-            beanCopier = new SfBeanCopier();
-        } catch (Exception e) {
-            //boot1
-            beanCopier = new SpringBeanCopier();
-        }
-        BEAN_COPIER = beanCopier;
-    }
-
-
-
-    public static class SfBeanCopier implements IBeanCopier {
-
-
-        @Override
-        public IBeanCopier create(Class source, Class target) {
-            return null;
-        }
-
-        @Override
-        public void copy(Object var1, Object var2) {
-
-        }
-    }
-
-    public static class SpringBeanCopier implements IBeanCopier {
-
-
-        @Override
-        public IBeanCopier create(Class source, Class target) {
-            return null;
-        }
-
-        @Override
-        public void copy(Object var1, Object var2) {
-
-        }
-    }
-
-
-
-
-    @SuppressWarnings("rawtypes")
-    private static BeanCopier initCopier(Class source, Class target) {
-        initLock.lock();
-        BeanCopier beanCopier = null;
-        try {
-            beanCopier = beanCopierMap.get(source.getName() + "_" + target.getName());
-            if (beanCopier == null) {
-                beanCopier = BeanCopier.create(source, target, false);
-                beanCopierMap.put(source.getName() + "_" + target.getName(), beanCopier);
+            Class.forName("org.springframework.cglib.beans.BeanCopier");
+            iBeanCopier = new SpringBeanCopier();
+        } catch (ClassNotFoundException e) {
+            try {
+                Class.forName("net.sf.cglib.beans.BeanCopier");
+                iBeanCopier = new SfBeanCopier();
+            } catch (ClassNotFoundException e1) {
+                // ignore
+                log.error("ClassNotFoundException {}", e);
             }
-        } finally {
-            initLock.unlock();
         }
-        return beanCopier;
-    }
-
-    @SuppressWarnings("rawtypes")
-    private static BeanCopier getBeanCopier(Class source, Class target) {
-        BeanCopier beanCopier = beanCopierMap.get(source.getClass().getName() + "_" + target.getName());
-        if (beanCopier != null) {
-            return beanCopier;
-        }
-        return initCopier(source, target);
     }
 
     @SuppressWarnings("unchecked")
@@ -93,7 +34,6 @@ public class BeanCopierMapper {
         if (source == null) {
             return null;
         }
-        BeanCopier beanCopier = getBeanCopier(source.getClass(), targetClass);
         try {
             // 如果为基础类型，不存在默认构造函数，将自动封箱操作
             if (source.getClass().isPrimitive()) {
@@ -102,15 +42,18 @@ public class BeanCopierMapper {
                 return (T) source;
             } else {
                 T target = targetClass.newInstance();
-                beanCopier.copy(source, target, null);
+                iBeanCopier.copy(source, target);
                 return target;
             }
-
-
-        } catch (Exception e) {
-            // 将尝试进行强转
-            return (T) source;
+        } catch (IllegalAccessException e) {
+            log.error("IllegalAccessException {}", e);
+        } catch (ExecutionException e) {
+            log.error("ExecutionException {}", e);
+        } catch (InstantiationException e) {
+            log.error("InstantiationException {}", e);
         }
+        // 将尝试进行强转
+        return (T) source;
     }
 
     @SuppressWarnings({"rawtypes", "unchecked"})
@@ -128,8 +71,12 @@ public class BeanCopierMapper {
                 result.add(convert(each, targetClass));
             }
             return result;
-        } catch (Exception e) {
-            throw new RuntimeException(source + "_" + targetClass, e);
+        } catch (IllegalAccessException e) {
+            log.error("IllegalAccessException {}", e);
+        } catch (InstantiationException e) {
+            log.error("InstantiationException {}", e);
         }
+        return null;
+//        throw new RuntimeException(source + "_" + targetClass);
     }
 }
