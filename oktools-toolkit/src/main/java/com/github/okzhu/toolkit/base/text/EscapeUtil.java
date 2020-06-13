@@ -7,6 +7,9 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 
+/**
+ * @author Administrator
+ */
 public class EscapeUtil {
     private EscapeUtil() {
         throw new IllegalStateException("Utility class");

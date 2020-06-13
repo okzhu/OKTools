@@ -4,6 +4,9 @@ import org.apache.commons.lang3.SystemUtils;
 
 import java.io.File;
 
+/**
+ * @author Administrator
+ */
 public class Platforms {
 
     /**
@@ -64,6 +67,7 @@ public class Platforms {
     public static final boolean IS_LINUX = SystemUtils.IS_OS_LINUX;
     public static final boolean IS_UNIX = SystemUtils.IS_OS_UNIX;
     public static final boolean IS_WINDOWS = SystemUtils.IS_OS_WINDOWS;
+
     private Platforms() {
     }
 

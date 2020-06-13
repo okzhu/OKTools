@@ -7,6 +7,9 @@ import java.lang.management.ManagementFactory;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * @author Administrator
+ */
 public class RuntimeUtil {
 
     private static AtomicInteger shutdownHookThreadIndex = new AtomicInteger(0);
@@ -22,6 +25,7 @@ public class RuntimeUtil {
      * <p>
      * 当失败时返回-1
      */
+    @SuppressWarnings("all")
     public static int getPid() {
 
         // format: "pid@hostname"
@@ -77,6 +81,7 @@ public class RuntimeUtil {
      * <p>
      * 获取StackTrace有消耗，不要滥用
      */
+    @SuppressWarnings("all")
     @SuppressFBWarnings("CLI_CONSTANT_LIST_INDEX")
     public static String getCallerClass() {
         StackTraceElement[] stacktrace = Thread.currentThread().getStackTrace();
@@ -93,6 +98,7 @@ public class RuntimeUtil {
      * <p>
      * 获取StackTrace有消耗，不要滥用
      */
+    @SuppressWarnings("all")
     @SuppressFBWarnings("CLI_CONSTANT_LIST_INDEX")
     public static String getCallerMethod() {
         StackTraceElement[] stacktrace = Thread.currentThread().getStackTrace();
@@ -109,6 +115,7 @@ public class RuntimeUtil {
      * <p>
      * 获取StackTrace有消耗，不要滥用
      */
+    @SuppressWarnings("all")
     @SuppressFBWarnings("CLI_CONSTANT_LIST_INDEX")
     public static String getCurrentClass() {
         StackTraceElement[] stacktrace = Thread.currentThread().getStackTrace();
@@ -125,6 +132,7 @@ public class RuntimeUtil {
      * <p>
      * 获取StackTrace有消耗，不要滥用
      */
+    @SuppressWarnings("all")
     @SuppressFBWarnings("CLI_CONSTANT_LIST_INDEX")
     public static String getCurrentMethod() {
         StackTraceElement[] stacktrace = Thread.currentThread().getStackTrace();

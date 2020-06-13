@@ -15,6 +15,9 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.Map;
 
+/**
+ * @author Administrator
+ */
 @Log4j2
 public class JsonMapper {
 

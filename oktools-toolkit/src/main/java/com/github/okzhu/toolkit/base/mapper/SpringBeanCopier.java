@@ -8,6 +8,9 @@ import org.springframework.cglib.beans.BeanCopier;
 import java.util.concurrent.ExecutionException;
 
 
+/**
+ * @author Administrator
+ */
 @SuppressFBWarnings("IICU_INCORRECT_INTERNAL_CLASS_USE")
 public class SpringBeanCopier implements IBeanCopier {
 

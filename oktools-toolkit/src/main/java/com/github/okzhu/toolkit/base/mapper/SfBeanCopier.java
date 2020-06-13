@@ -8,6 +8,9 @@ import net.sf.cglib.beans.BeanCopier;
 import java.util.concurrent.ExecutionException;
 
 
+/**
+ * @author Administrator
+ */
 public class SfBeanCopier implements IBeanCopier {
 
 

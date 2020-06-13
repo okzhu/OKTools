@@ -1,5 +1,8 @@
 package com.github.okzhu.toolkit.base.util;
 
+/**
+ * @author Administrator
+ */
 public class ClassLoaderUtil {
     private ClassLoaderUtil() {
         throw new IllegalStateException("Utility class");

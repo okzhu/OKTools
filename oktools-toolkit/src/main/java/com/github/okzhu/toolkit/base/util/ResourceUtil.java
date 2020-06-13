@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 
+/**
+ * @author Administrator
+ */
 public class ResourceUtil {
 
     private ResourceUtil() {

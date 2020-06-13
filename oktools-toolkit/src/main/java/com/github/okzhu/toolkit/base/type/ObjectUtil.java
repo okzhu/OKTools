@@ -5,6 +5,9 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 import java.util.Arrays;
 
+/**
+ * @author Administrator
+ */
 public class ObjectUtil {
 
     private static final String NULL = "null";

@@ -12,6 +12,7 @@ import org.apache.commons.lang3.StringUtils;
  * 而ValueValidator的行为是取默认值，多用于配置值的处理。
  * <p>
  * 除默认提供的Validator，可自行扩写。
+ * @author Administrator
  */
 public class ValueValidator {
 

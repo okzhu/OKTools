@@ -15,6 +15,7 @@ import java.util.Locale;
  * 2.判断字符串是否数字, 是否16进制字符串(via Common Lang)
  * <p>
  * 3.10机制/16进制字符串 与 原始类型数字/数字对象 的双向转换(参考Common Lang自写)
+ * @author Administrator
  */
 public class NumberUtil {
 

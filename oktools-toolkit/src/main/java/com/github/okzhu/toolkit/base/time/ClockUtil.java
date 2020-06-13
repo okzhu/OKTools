@@ -9,6 +9,8 @@ import java.util.Date;
  * 这个就导致了这个类的主要动机了。
  * <p>
  * 我们系统 所有的 获取时间的在这个类里面来获取。那么我就可以直接通过代码修改时间来测试
+ *
+ * @author Administrator
  **/
 public class ClockUtil {
 

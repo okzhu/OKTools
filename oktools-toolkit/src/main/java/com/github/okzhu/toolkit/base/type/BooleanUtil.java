@@ -3,6 +3,9 @@ package com.github.okzhu.toolkit.base.type;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.apache.commons.lang3.BooleanUtils;
 
+/**
+ * @author Administrator
+ */
 public class BooleanUtil {
 
     private BooleanUtil() {

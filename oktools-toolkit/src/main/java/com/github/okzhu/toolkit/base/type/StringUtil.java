@@ -10,6 +10,7 @@ import java.util.List;
 
 /**
  * 通用 String 的工具集
+ * @author Administrator
  */
 public class StringUtil {
 

@@ -4,7 +4,9 @@ import java.security.SecureRandom;
 import java.util.Random;
 
 /**
- * Created by kaiqian.zhu on 2018/2/1.
+ *
+ * @author kaiqian.zhu
+ * @date 2018/2/1
  * 注意 闰秒回拨
  */
 public class IdWorker {
@@ -18,7 +20,7 @@ public class IdWorker {
     private static final long DATACENTER_ID_SHIFT = SEQUENCE_BITS + WORKER_ID_BITS;
     private static final long TIMESTAMP_LEFT_SHIFT = SEQUENCE_BITS + WORKER_ID_BITS + DATACENTER_ID_BITS;
     private static final long SEQUENCE_MASK = -1L ^ (-1L << SEQUENCE_BITS);
-    private static final Random r = new SecureRandom();
+    private static final Random R = new SecureRandom();
     private final long workerId;
     private final long dataCenterId;
     private final long idEpoch;
@@ -30,7 +32,7 @@ public class IdWorker {
     }
 
     public IdWorker(long idEpoch) {
-        this(r.nextInt((int) MAX_WORKER_ID), r.nextInt((int) MAX_DATACENTER_ID), 0, idEpoch);
+        this(R.nextInt((int) MAX_WORKER_ID), R.nextInt((int) MAX_DATACENTER_ID), 0, idEpoch);
     }
 
     public IdWorker(long workerId, long dataCenterId) {
@@ -73,6 +75,7 @@ public class IdWorker {
         return nextId();
     }
 
+    @SuppressWarnings("all")
     private synchronized long nextId() {
         long timestamp = timeGen();
         if (timestamp < lastTimestamp) {

@@ -13,6 +13,9 @@ import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.List;
 
+/**
+ * @author Administrator
+ */
 @Log4j2
 public class FileUtil {
     private static final String NOT_FILE = "%s is not exist or not a file";

@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 
 /**
  * 通过正则表达判断是否正确的URL， 邮箱，手机号，固定电话，身份证，邮箱等.
+ * @author Administrator
  */
 
 public class TextValidator {

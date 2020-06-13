@@ -7,6 +7,7 @@ import java.util.Collection;
 
 /**
  * 通用 Array 的工具集
+ * @author Administrator
  */
 public class ArrayUtil {
 

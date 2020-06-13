@@ -63,6 +63,7 @@ public class RandomUtil {
     /**
      * 返回0到Intger.MAX_VALUE的随机Int, 可传入ThreadLocalRandom或SecureRandom
      */
+    @SuppressWarnings("all")
     public static int nextInt(Random random) {
         int n = random.nextInt();
         if (n == Integer.MIN_VALUE) {
@@ -129,6 +130,7 @@ public class RandomUtil {
     /**
      * 返回0－Long.MAX_VALUE间的随机Long, 可传入SecureRandom或ThreadLocalRandom
      */
+    @SuppressWarnings("all")
     public static long nextLong(Random random) {
         long n = random.nextLong();
         if (n == Long.MIN_VALUE) {

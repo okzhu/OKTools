@@ -10,6 +10,9 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
 import java.lang.reflect.UndeclaredThrowableException;
 import java.text.MessageFormat;
 
+/**
+ * @author Administrator
+ */
 public class ExceptionUtil {
     private static final StackTraceElement[] EMPTY_STACK_TRACE = new StackTraceElement[0];
 

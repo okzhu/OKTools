@@ -4,6 +4,7 @@ import com.google.common.io.BaseEncoding;
 
 /**
  * string/url -> hex/base64 编解码工具集(via guava BaseEncoding)
+ * @author Administrator
  */
 public class EncodeUtil {
     private EncodeUtil() {

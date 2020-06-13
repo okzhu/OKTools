@@ -10,6 +10,9 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 
+/**
+ * @author Administrator
+ */
 @Log4j2
 public class BeanCopierMapper {
 

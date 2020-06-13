@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * 通用 List 的工具集
+ * @author Administrator
  */
 public class ListUtil {
 

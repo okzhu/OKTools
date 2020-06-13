@@ -2,7 +2,7 @@ package com.github.okzhu.toolkit.base.type;
 
 import com.github.okzhu.toolkit.base.number.NumberUtil;
 import com.github.okzhu.toolkit.base.text.Charsets;
-import com.github.okzhu.toolkit.base.util.URLResourceUtil;
+import com.github.okzhu.toolkit.base.util.UrlResourceUtil;
 import lombok.extern.log4j.Log4j2;
 
 import java.io.IOException;
@@ -11,6 +11,9 @@ import java.io.Reader;
 import java.io.StringReader;
 import java.util.Properties;
 
+/**
+ * @author Administrator
+ */
 @Log4j2
 public class PropertiesUtil {
     private PropertiesUtil() {
@@ -46,7 +49,7 @@ public class PropertiesUtil {
      */
     public static Properties loadFromFile(String generalPath) {
         Properties p = new Properties();
-        try (Reader reader = new InputStreamReader(URLResourceUtil.asStream(generalPath), Charsets.UTF_8)) {
+        try (Reader reader = new InputStreamReader(UrlResourceUtil.asStream(generalPath), Charsets.UTF_8)) {
             p.load(reader);
         } catch (IOException e) {
             log.error("Load property from " + generalPath + " failed", e);

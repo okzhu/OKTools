@@ -4,6 +4,7 @@ import java.util.Set;
 
 /**
  * 通用 Set 的工具集
+ * @author Administrator
  */
 public class SetUtil {
 

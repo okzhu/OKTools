@@ -20,13 +20,14 @@ import java.net.URL;
  * e.g: classpath:com/myapp/config.xml, file:///data/config.xml, /data/config.xml
  * <p>
  * 参考Spring ResourceUtils
+ * @author Administrator
  */
-public class URLResourceUtil {
+public class UrlResourceUtil {
 
     private static final String CLASSPATH_PREFIX = "classpath:";
     private static final String URL_PROTOCOL_FILE = "file";
 
-    private URLResourceUtil() {
+    private UrlResourceUtil() {
         throw new IllegalStateException("Utility class");
     }
 
@@ -41,11 +42,11 @@ public class URLResourceUtil {
     public static File asFile(String generalPath) throws IOException {
         if (StringUtils.startsWith(generalPath, CLASSPATH_PREFIX)) {
             String resourceName = StringUtils.substringAfter(generalPath, CLASSPATH_PREFIX);
-            return getFileByURL(ResourceUtil.asUrl(resourceName));
+            return getFileByUrl(ResourceUtil.asUrl(resourceName));
         }
         try {
             // try URL
-            return getFileByURL(new URL(generalPath));
+            return getFileByUrl(new URL(generalPath));
         } catch (MalformedURLException ex) {
             // no URL -> treat as file path
             return new File(generalPath);
@@ -64,7 +65,7 @@ public class URLResourceUtil {
 
         try {
             // try URL
-            return FileUtil.asInputStream(getFileByURL(new URL(generalPath)));
+            return FileUtil.asInputStream(getFileByUrl(new URL(generalPath)));
         } catch (MalformedURLException ex) {
             // no URL -> treat as file path
             return FileUtil.asInputStream(generalPath);
@@ -72,21 +73,21 @@ public class URLResourceUtil {
     }
 
     @SuppressFBWarnings("PATH_TRAVERSAL_IN")
-    private static File getFileByURL(URL fileUrl) throws FileNotFoundException {
+    private static File getFileByUrl(URL fileUrl) throws FileNotFoundException {
         Validate.notNull(fileUrl, "Resource URL must not be null");
         if (!URL_PROTOCOL_FILE.equals(fileUrl.getProtocol())) {
             throw new FileNotFoundException("URL cannot be resolved to absolute file path "
                     + "because it does not reside in the file system: " + fileUrl);
         }
         try {
-            return new File(toURI(fileUrl.toString()).getSchemeSpecificPart());
+            return new File(toUri(fileUrl.toString()).getSchemeSpecificPart());
         } catch (URISyntaxException ex) { // NOSONAR
             // Fallback for URLs that are not valid URIs (should hardly ever happen).
             return new File(fileUrl.getFile());
         }
     }
 
-    public static URI toURI(String location) throws URISyntaxException {
+    public static URI toUri(String location) throws URISyntaxException {
         return new URI(StringUtils.replace(location, " ", "%20"));
     }
 }
