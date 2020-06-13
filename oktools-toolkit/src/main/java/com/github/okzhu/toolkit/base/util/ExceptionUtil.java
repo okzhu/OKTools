@@ -11,9 +11,11 @@ import java.lang.reflect.UndeclaredThrowableException;
 import java.text.MessageFormat;
 
 public class ExceptionUtil {
-
-
     private static final StackTraceElement[] EMPTY_STACK_TRACE = new StackTraceElement[0];
+
+    private ExceptionUtil() {
+        throw new IllegalStateException("Utility class");
+    }
 
     ///// Checked/Unchecked及Wrap(如ExecutionException)的转换/////
 
@@ -69,6 +71,8 @@ public class ExceptionUtil {
         throw unchecked(unwrap(t));
     }
 
+
+    @SuppressWarnings("all")
     public static OKBaseException unwrapAndChecked(Throwable t) throws OKBaseException {
         throw unchecked(unwrap(t));
     }
@@ -78,7 +82,7 @@ public class ExceptionUtil {
         return new OKRestException(exception.getErrCode(), MessageFormat.format(exception.getMessage(), arguments));
     }
 
-    public static OKRestException handle(Result result) {
+    public static OKRestException handle(Result<?> result) {
         return new OKRestException(result.getErrCode(), result.getMessage(), result.getData());
     }
 

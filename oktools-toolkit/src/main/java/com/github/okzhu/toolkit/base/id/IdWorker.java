@@ -9,15 +9,15 @@ import java.util.Random;
  */
 public class IdWorker {
 
-    private static final long workerIdBits = 5L;
-    private static final long datacenterIdBits = 5L;
-    private static final long maxWorkerId = -1L ^ (-1L << workerIdBits);
-    private static final long maxDatacenterId = -1L ^ (-1L << datacenterIdBits);
-    private static final long sequenceBits = 12L;
-    private static final long workerIdShift = sequenceBits;
-    private static final long datacenterIdShift = sequenceBits + workerIdBits;
-    private static final long timestampLeftShift = sequenceBits + workerIdBits + datacenterIdBits;
-    private static final long sequenceMask = -1L ^ (-1L << sequenceBits);
+    private static final long WORKER_ID_BITS = 5L;
+    private static final long DATACENTER_ID_BITS = 5L;
+    private static final long MAX_WORKER_ID = -1L ^ (-1L << WORKER_ID_BITS);
+    private static final long MAX_DATACENTER_ID = -1L ^ (-1L << DATACENTER_ID_BITS);
+    private static final long SEQUENCE_BITS = 12L;
+    private static final long WORKER_ID_SHIFT = SEQUENCE_BITS;
+    private static final long DATACENTER_ID_SHIFT = SEQUENCE_BITS + WORKER_ID_BITS;
+    private static final long TIMESTAMP_LEFT_SHIFT = SEQUENCE_BITS + WORKER_ID_BITS + DATACENTER_ID_BITS;
+    private static final long SEQUENCE_MASK = -1L ^ (-1L << SEQUENCE_BITS);
     private static final Random r = new SecureRandom();
     private final long workerId;
     private final long dataCenterId;
@@ -30,7 +30,7 @@ public class IdWorker {
     }
 
     public IdWorker(long idEpoch) {
-        this(r.nextInt((int) maxWorkerId), r.nextInt((int) maxDatacenterId), 0, idEpoch);
+        this(r.nextInt((int) MAX_WORKER_ID), r.nextInt((int) MAX_DATACENTER_ID), 0, idEpoch);
     }
 
     public IdWorker(long workerId, long dataCenterId) {
@@ -46,10 +46,10 @@ public class IdWorker {
         this.dataCenterId = dataCenterId;
         this.sequence = sequence;
         this.idEpoch = idEpoch;
-        if (workerId < 0 || workerId > maxWorkerId) {
+        if (workerId < 0 || workerId > MAX_WORKER_ID) {
             throw new IllegalArgumentException("workerId is illegal: " + workerId);
         }
-        if (dataCenterId < 0 || dataCenterId > maxDatacenterId) {
+        if (dataCenterId < 0 || dataCenterId > MAX_DATACENTER_ID) {
             throw new IllegalArgumentException("dataCenterId is illegal: " + workerId);
         }
         if (idEpoch >= System.currentTimeMillis()) {
@@ -79,7 +79,7 @@ public class IdWorker {
             throw new IllegalStateException("Clock moved backwards.");
         }
         if (lastTimestamp == timestamp) {
-            sequence = (sequence + 1) & sequenceMask;
+            sequence = (sequence + 1) & SEQUENCE_MASK;
             if (sequence == 0) {
                 timestamp = tilNextMillis(lastTimestamp);
             }
@@ -88,9 +88,9 @@ public class IdWorker {
         }
         lastTimestamp = timestamp;
 
-        return ((timestamp - idEpoch) << timestampLeftShift)//
-                | (dataCenterId << datacenterIdShift)//
-                | (workerId << workerIdShift)//
+        return ((timestamp - idEpoch) << TIMESTAMP_LEFT_SHIFT)//
+                | (dataCenterId << DATACENTER_ID_SHIFT)//
+                | (workerId << WORKER_ID_SHIFT)//
                 | sequence;
     }
 
@@ -101,7 +101,7 @@ public class IdWorker {
      * @return the timestamp of id
      */
     public long getIdTimestamp(long id) {
-        return idEpoch + (id >> timestampLeftShift);
+        return idEpoch + (id >> TIMESTAMP_LEFT_SHIFT);
     }
 
     private long tilNextMillis(long lastTimestamp) {

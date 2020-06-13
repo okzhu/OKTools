@@ -8,6 +8,9 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 
 public class EscapeUtil {
+    private EscapeUtil() {
+        throw new IllegalStateException("Utility class");
+    }
 
     /**
      * URL 编码, Encode默认为UTF-8.

@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.util.JSONPObject;
+import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.annotation.Nullable;
@@ -14,6 +15,7 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.Map;
 
+@Log4j2
 public class JsonMapper {
 
     public static final JsonMapper INSTANCE = new JsonMapper();
@@ -65,7 +67,7 @@ public class JsonMapper {
         try {
             return mapper.writeValueAsString(object);
         } catch (IOException e) {
-//            logger.warn("write to json string error:" + object, e);
+            log.error("write to json string error:" + object, e);
             return null;
         }
     }
@@ -87,14 +89,13 @@ public class JsonMapper {
         try {
             return mapper.readValue(jsonString, clazz);
         } catch (IOException e) {
-//            logger.warn("parse json string error:" + jsonString, e);
+            log.error("parse json string error:" + jsonString, e);
             return null;
         }
     }
 
     /**
      * 反序列化复杂Collection如List<Bean>, constructCollectionType()或constructMapType()构造类型, 然后调用本函数.
-     *
      */
     public <T> T fromJson(@Nullable String jsonString, JavaType javaType) {
         if (StringUtils.isEmpty(jsonString)) {
@@ -104,7 +105,7 @@ public class JsonMapper {
         try {
             return (T) mapper.readValue(jsonString, javaType);
         } catch (IOException e) {
-//            logger.warn("parse json string error:" + jsonString, e);
+            log.error("parse json string error:" + jsonString, e);
             return null;
         }
     }
@@ -130,9 +131,9 @@ public class JsonMapper {
         try {
             mapper.readerForUpdating(object).readValue(jsonString);
         } catch (JsonProcessingException e) {
-//            logger.warn("update json string:" + jsonString + " to object:" + object + " error.", e);
+            log.error("update JsonProcessingException string:" + jsonString + " to object:" + object + " error.", e);
         } catch (IOException e) {
-//            logger.warn("update json string:" + jsonString + " to object:" + object + " error.", e);
+            log.error("update IOException string:" + jsonString + " to object:" + object + " error.", e);
         }
     }
 

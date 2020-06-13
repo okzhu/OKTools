@@ -1,6 +1,5 @@
 package com.github.okzhu.toolkit.base.number;
 
-import com.github.okzhu.toolkit.base.validator.MoreValidate;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.Validate;
 
@@ -11,19 +10,25 @@ import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * 随机数工具集.
- *
+ * <p>
  * 1. 获取无锁的ThreadLocalRandom, 性能较佳的SecureRandom
- *
+ * <p>
  * 2. 保证没有负数陷阱，也能更精确设定范围的nextInt/nextLong/nextDouble
- *  (copy from Common Lang RandomUtils，但默认使用性能较优的ThreadLocalRandom，并可配置其他的Random)
- *
+ * (copy from Common Lang RandomUtils，但默认使用性能较优的ThreadLocalRandom，并可配置其他的Random)
+ * <p>
  * 3. 随机字符串 (via Common Lang RandomStringUtils)
  *
  * @author calvin
  */
 public class RandomUtil {
 
+    private static final String END_MUST_BIG = "Start value must be smaller or equal to end value.";
+
+    private RandomUtil() {
+        throw new IllegalStateException("Utility class");
+    }
     /////////////////// 获取Random实例//////////////
+
     /**
      * 返回无锁的ThreadLocalRandom
      */
@@ -33,9 +38,9 @@ public class RandomUtil {
 
     /**
      * SecureRandom使用性能更好的SHA1PRNG, Tomcat的sessionId生成也用此算法.
-     *
+     * <p>
      * 但JDK7中，需要在启动参数加入 -Djava.security=file:/dev/./urandom （中间那个点很重要）
-     *
+     * <p>
      * 详见：《SecureRandom的江湖偏方与真实效果》http://calvin1978.blogcn.com/articles/securerandom.html
      */
     public static SecureRandom secureRandom() {
@@ -47,6 +52,7 @@ public class RandomUtil {
     }
 
     ////////////////// nextInt 相关/////////
+
     /**
      * 返回0到Intger.MAX_VALUE的随机Int, 使用ThreadLocalRandom.
      */
@@ -84,7 +90,7 @@ public class RandomUtil {
 
     /**
      * 返回min到max的随机Int, 使用ThreadLocalRandom.
-     *
+     * <p>
      * min必须大于0.
      */
     public static int nextInt(int min, int max) {
@@ -93,16 +99,16 @@ public class RandomUtil {
 
     /**
      * 返回min到max的随机Int,可传入SecureRandom或ThreadLocalRandom.
-     *
+     * <p>
      * min必须大于0.
-     *
+     * <p>
      * JDK本身不具有控制两端范围的nextInt，因此参考Commons Lang RandomUtils的实现, 不直接复用是因为要传入Random实例
      *
      * @see org.apache.commons.lang3.RandomUtils#nextInt(int, int)
      */
+
     public static int nextInt(Random random, int min, int max) {
-        Validate.isTrue(max >= min, "Start value must be smaller or equal to end value.");
-        MoreValidate.nonNegative("min", min);
+        Validate.isTrue(max >= min, END_MUST_BIG);
 
         if (min == max) {
             return min;
@@ -112,6 +118,7 @@ public class RandomUtil {
     }
 
     ////////////////// long 相关/////////
+
     /**
      * 返回0－Long.MAX_VALUE间的随机Long, 使用ThreadLocalRandom.
      */
@@ -148,7 +155,7 @@ public class RandomUtil {
 
     /**
      * 返回min－max间的随机Long, 使用ThreadLocalRandom.
-     *
+     * <p>
      * min必须大于0.
      */
     public static long nextLong(long min, long max) {
@@ -157,16 +164,15 @@ public class RandomUtil {
 
     /**
      * 返回min-max间的随机Long,可传入SecureRandom或ThreadLocalRandom.
-     *
+     * <p>
      * min必须大于0.
-     *
+     * <p>
      * JDK本身不具有控制两端范围的nextLong，因此参考Commons Lang RandomUtils的实现, 不直接复用是因为要传入Random实例
      *
      * @see org.apache.commons.lang3.RandomUtils#nextLong(long, long)
      */
     public static long nextLong(Random random, long min, long max) {
-        Validate.isTrue(max >= min, "Start value must be smaller or equal to end value.");
-        MoreValidate.nonNegative("min", min);
+        Validate.isTrue(max >= min, END_MUST_BIG);
 
         if (min == max) {
             return min;
@@ -176,6 +182,7 @@ public class RandomUtil {
     }
 
     ///////// Double //////
+
     /**
      * 返回0-之间的double, 使用ThreadLocalRandom
      */
@@ -192,7 +199,7 @@ public class RandomUtil {
 
     /**
      * 返回0-max之间的double, 使用ThreadLocalRandom
-     *
+     * <p>
      * 注意：与JDK默认返回0-1的行为不一致.
      */
     public static double nextDouble(double max) {
@@ -217,8 +224,7 @@ public class RandomUtil {
      * 返回min-max之间的double
      */
     public static double nextDouble(Random random, final double min, final double max) {
-        Validate.isTrue(max >= min, "Start value must be smaller or equal to end value.");
-        MoreValidate.nonNegative("min", min);
+        Validate.isTrue(max >= min, END_MUST_BIG);
 
         if (Double.compare(min, max) == 0) {
             return min;

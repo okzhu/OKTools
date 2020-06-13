@@ -15,7 +15,7 @@ public class SfBeanCopier implements IBeanCopier {
             .maximumSize(2000)
             .build();
 
-    private static BeanCopier getBeanCopier(Class source, Class target) throws ExecutionException {
+    private static BeanCopier getBeanCopier(Class<?> source, Class<?> target) throws ExecutionException {
 
         String key = source.getName() + "_" + target.getName();
 

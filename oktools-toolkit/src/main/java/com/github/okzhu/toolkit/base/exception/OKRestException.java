@@ -1,5 +1,6 @@
 package com.github.okzhu.toolkit.base.exception;
 
+@SuppressWarnings("all")
 public class OKRestException extends OKBaseException {
 
     private Long errCode = 1000L;
@@ -35,26 +36,13 @@ public class OKRestException extends OKBaseException {
         return errCode;
     }
 
-    public void setErrCode(Long errCode) {
-        this.errCode = errCode;
-    }
-
     @Override
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
     public Object getData() {
         return data;
     }
-
-    public void setData(Object data) {
-        this.data = data;
-    }
-
 
 }

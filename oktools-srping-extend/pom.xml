@@ -13,8 +13,9 @@
 
     <modules>
 
-        <!--        <module>tools-lucene</module>-->
         <module>tools-netty</module>
+        <module>tools-swagger-codegen</module>
+
 
     </modules>
 

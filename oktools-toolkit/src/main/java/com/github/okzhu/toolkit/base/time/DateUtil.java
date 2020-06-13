@@ -12,14 +12,16 @@ import java.util.Date;
 
 public class DateUtil {
 
-
     public static final long MILLIS_PER_SECOND = 1000; // Number of milliseconds in a standard second.
     public static final long MILLIS_PER_MINUTE = 60 * MILLIS_PER_SECOND; // Number of milliseconds in a standard minute.
     public static final long MILLIS_PER_HOUR = 60 * MILLIS_PER_MINUTE; // Number of milliseconds in a standard hour.
     public static final long MILLIS_PER_DAY = 24 * MILLIS_PER_HOUR; // Number of milliseconds in a standard day.
-
-
     private static final int[] MONTH_LENGTH = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+
+    private DateUtil() {
+        throw new IllegalStateException("Utility class");
+    }
 
     private static int get(final Date date, int field) {
         Validate.notNull(date, "The date must not be null");

@@ -1,20 +1,21 @@
 package com.github.okzhu.toolkit.base.mapper;
 
-
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.springframework.cglib.beans.BeanCopier;
 
 import java.util.concurrent.ExecutionException;
 
 
+@SuppressFBWarnings("IICU_INCORRECT_INTERNAL_CLASS_USE")
 public class SpringBeanCopier implements IBeanCopier {
 
     private static Cache<String, BeanCopier> cache = CacheBuilder.newBuilder()
             .maximumSize(2000)
             .build();
 
-    private static BeanCopier getBeanCopier(Class source, Class target) throws ExecutionException {
+    private static BeanCopier getBeanCopier(Class<?> source, Class<?> target) throws ExecutionException {
 
         String key = source.getName() + "_" + target.getName();
 

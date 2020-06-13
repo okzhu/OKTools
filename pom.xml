@@ -10,13 +10,8 @@
     <version>0.0.1</version>
 
     <modules>
-
-
         <module>oktools-toolkit</module>
-
         <module>oktools-srping-extend</module>
-
-
     </modules>
 
     <!--        mvn clean verify dependency:analyze project-info-reports:dependencies-->
@@ -73,6 +68,18 @@
             <artifactId>junit-vintage-engine</artifactId>
             <version>5.4.2</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>annotations</artifactId>
+            <version>3.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>3.0.1</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

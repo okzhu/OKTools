@@ -13,25 +13,6 @@ import java.util.Date;
 public class ClockUtil {
 
 
-    public interface Clock {
-
-        /**
-         * 系统当前时间
-         */
-        Date currentDate();
-
-        /**
-         * 系统当前时间戳
-         */
-        long currentTimeMillis();
-
-        /**
-         * 操作系统启动到现在的纳秒数，与系统时间是完全独立的两个时间体系
-         */
-        long nanoTime();
-    }
-
-
     private static Clock instance = new DefaultClock();
 
     /**
@@ -93,6 +74,23 @@ public class ClockUtil {
         return instance.nanoTime();
     }
 
+    public interface Clock {
+
+        /**
+         * 系统当前时间
+         */
+        Date currentDate();
+
+        /**
+         * 系统当前时间戳
+         */
+        long currentTimeMillis();
+
+        /**
+         * 操作系统启动到现在的纳秒数，与系统时间是完全独立的两个时间体系
+         */
+        long nanoTime();
+    }
 
     /**
      * 默认时间提供者，返回当前的时间，线程安全。

@@ -30,7 +30,7 @@ public class ListUtil {
 
     /**
      * 返回一个空的结构特殊的List，节约空间.
-     *
+     * <p>
      * 注意返回的List不可写, 写入会抛出UnsupportedOperationException.
      *
      * @see java.util.Collections#emptyList()

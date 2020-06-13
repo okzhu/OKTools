@@ -139,11 +139,11 @@ class ArrayUtilconcatTest {
     void concat() {
         String[] strs = ArrayUtil.newArray(String.class, 0);
         strs = ArrayUtil.concat("1", strs);
-        Assert.assertTrue(strs.length == 1);
+        Assert.assertEquals(1, strs.length);
 //        Assert.assertTrue(strs[0].equals("1"));
 
         strs = ArrayUtil.concat(strs, "2");
-        Assert.assertTrue(strs.length == 2);
+        Assert.assertEquals(2, strs.length);
 //        Assert.assertTrue(strs[1].equals("2"));
     }
 

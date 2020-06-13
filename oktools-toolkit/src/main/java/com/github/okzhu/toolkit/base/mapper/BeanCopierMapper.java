@@ -1,6 +1,9 @@
 package com.github.okzhu.toolkit.base.mapper;
 
 
+import com.github.okzhu.toolkit.base.exception.OKBaseException;
+import com.github.okzhu.toolkit.base.type.ListUtil;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.extern.log4j.Log4j2;
 
 import java.util.List;
@@ -10,9 +13,7 @@ import java.util.concurrent.ExecutionException;
 @Log4j2
 public class BeanCopierMapper {
 
-
     private static IBeanCopier iBeanCopier;
-
 
     static {
         try {
@@ -27,6 +28,11 @@ public class BeanCopierMapper {
                 log.error("ClassNotFoundException {}", e);
             }
         }
+    }
+
+
+    private BeanCopierMapper() {
+        throw new IllegalStateException("Utility class");
     }
 
     @SuppressWarnings("unchecked")
@@ -56,16 +62,17 @@ public class BeanCopierMapper {
         return (T) source;
     }
 
+    @SuppressFBWarnings("EXS_EXCEPTION_SOFTENING_NO_CONSTRAINTS")
     @SuppressWarnings({"rawtypes", "unchecked"})
-    public static <E> List<E> convert(List source, Class<E> targetClass) {
+    public static <E> List<E> convert(List<? extends Object> source, Class<E> targetClass) {
         if (source == null) {
-            return null;
+            return ListUtil.emptyList();
         }
         try {
             if (source.isEmpty()) {
                 return source.getClass().newInstance();
             }
-            List result = source.getClass().newInstance();
+            List<E> result = source.getClass().newInstance();
 
             for (Object each : source) {
                 result.add(convert(each, targetClass));
@@ -76,7 +83,6 @@ public class BeanCopierMapper {
         } catch (InstantiationException e) {
             log.error("InstantiationException {}", e);
         }
-        return null;
-//        throw new RuntimeException(source + "_" + targetClass);
+        throw new OKBaseException(source + "_" + targetClass);
     }
 }
