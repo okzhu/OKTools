@@ -12,9 +12,6 @@ public class OKRestException extends OKBaseException {
     private String message = "Service unavailable,please contact with administrator";
     private Object data = null;
 
-    private OKRestException() {
-    }
-
     public OKRestException(String message) {
         super(message);
         this.message = message;

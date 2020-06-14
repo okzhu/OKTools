@@ -8,7 +8,7 @@ public class OKBaseException extends RuntimeException {
 
     private static final long serialVersionUID = -600420843373992963L;
 
-    public OKBaseException() {
+    private OKBaseException() {
     }
 
     public OKBaseException(String message) {
@@ -27,6 +27,7 @@ public class OKBaseException extends RuntimeException {
 
     @Override
     public String getMessage() {
-        return super.getCause().getMessage();
+        return (super.getCause() == null ? super.getMessage() : super.getCause().getMessage());
     }
+
 }

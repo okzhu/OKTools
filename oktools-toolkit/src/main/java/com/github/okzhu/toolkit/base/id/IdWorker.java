@@ -1,5 +1,7 @@
 package com.github.okzhu.toolkit.base.id;
 
+import com.github.okzhu.toolkit.base.time.ClockUtil;
+
 import java.security.SecureRandom;
 import java.util.Random;
 
@@ -39,9 +41,9 @@ public class IdWorker {
         this(workerId, dataCenterId, 0, 1517414400000L);
     }
 
-    public IdWorker(long workerId, long dataCenterId, long sequence) {
-        this(workerId, dataCenterId, sequence, 1517414400000L);
-    }
+//    public IdWorker(long workerId, long dataCenterId, long sequence) {
+//        this(workerId, dataCenterId, sequence, 1517414400000L);
+//    }
 
     public IdWorker(long workerId, long dataCenterId, long sequence, long idEpoch) {
         this.workerId = workerId;
@@ -65,10 +67,6 @@ public class IdWorker {
 
     public long getWorkerId() {
         return workerId;
-    }
-
-    public long getTime() {
-        return System.currentTimeMillis();
     }
 
     public long getId() {
@@ -116,7 +114,7 @@ public class IdWorker {
     }
 
     private long timeGen() {
-        return System.currentTimeMillis();
+        return ClockUtil.currentTimeMillis();
     }
 
 }
