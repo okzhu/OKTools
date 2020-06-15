@@ -1,12 +1,13 @@
 package com.github.okzhu.toolkit.base.util;
 
+import lombok.experimental.UtilityClass;
+
 /**
  * @author Administrator
  */
+@UtilityClass
 public class ClassLoaderUtil {
-    private ClassLoaderUtil() {
-        throw new IllegalStateException("Utility class");
-    }
+
 
     /**
      * Copy from Spring, 按顺序获取默认ClassLoader

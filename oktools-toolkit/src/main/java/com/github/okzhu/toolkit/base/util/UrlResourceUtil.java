@@ -2,6 +2,7 @@ package com.github.okzhu.toolkit.base.util;
 
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 
@@ -22,14 +23,11 @@ import java.net.URL;
  * 参考Spring ResourceUtils
  * @author Administrator
  */
+@UtilityClass
 public class UrlResourceUtil {
 
     private static final String CLASSPATH_PREFIX = "classpath:";
     private static final String URL_PROTOCOL_FILE = "file";
-
-    private UrlResourceUtil() {
-        throw new IllegalStateException("Utility class");
-    }
 
     /**
      * 兼容无前缀, classpath:, file:// 的情况获取文件

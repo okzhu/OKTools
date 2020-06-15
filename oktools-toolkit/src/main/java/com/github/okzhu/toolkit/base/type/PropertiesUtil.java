@@ -3,6 +3,7 @@ package com.github.okzhu.toolkit.base.type;
 import com.github.okzhu.toolkit.base.number.NumberUtil;
 import com.github.okzhu.toolkit.base.text.Charsets;
 import com.github.okzhu.toolkit.base.util.UrlResourceUtil;
+import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
 
 import java.io.IOException;
@@ -15,10 +16,8 @@ import java.util.Properties;
  * @author Administrator
  */
 @Log4j2
+@UtilityClass
 public class PropertiesUtil {
-    private PropertiesUtil() {
-        throw new IllegalStateException("Utility class");
-    }
 
     public static Boolean getBoolean(Properties p, String name, Boolean defaultValue) {
         return BooleanUtil.toBooleanObject(p.getProperty(name), defaultValue);

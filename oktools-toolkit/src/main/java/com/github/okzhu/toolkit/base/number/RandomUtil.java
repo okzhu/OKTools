@@ -1,5 +1,6 @@
 package com.github.okzhu.toolkit.base.number;
 
+import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.Validate;
 
@@ -20,13 +21,11 @@ import java.util.concurrent.ThreadLocalRandom;
  *
  * @author calvin
  */
+@UtilityClass
 public class RandomUtil {
 
     private static final String END_MUST_BIG = "Start value must be smaller or equal to end value.";
 
-    private RandomUtil() {
-        throw new IllegalStateException("Utility class");
-    }
     /////////////////// 获取Random实例//////////////
 
     /**

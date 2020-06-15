@@ -1,5 +1,6 @@
 package com.github.okzhu.toolkit.base.time;
 
+import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.Validate;
 
 import java.util.Calendar;
@@ -10,7 +11,7 @@ import java.util.Date;
  * 月份的天数
  * @author Administrator
  */
-
+@UtilityClass
 public class DateUtil {
 
     /**
@@ -30,11 +31,6 @@ public class DateUtil {
      */
     public static final long MILLIS_PER_DAY = 24 * MILLIS_PER_HOUR;
     private static final int[] MONTH_LENGTH = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-
-
-    private DateUtil() {
-        throw new IllegalStateException("Utility class");
-    }
 
     private static int get(final Date date, int field) {
         Validate.notNull(date, "The date must not be null");

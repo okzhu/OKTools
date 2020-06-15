@@ -7,15 +7,16 @@ import org.junit.jupiter.api.Test;
 
 class OKRestExceptionTest {
 
-    private final String ERR_NESSAGE = "err";
-    private final Long ERR_CODE = 2000L;
-    private final Long ERR_CODE_DEF = 1000L;
-    private final String ERR_DATA = "ERR_DATA";
+    private String ERR_NESSAGE = "err";
+    private Long ERR_CODE = 2000L;
+    private Long ERR_CODE_DEF = 1000L;
+    private String ERR_DATA = "ERR_DATA";
 
-    private final OKRestException OK_REST_EXCEPTION_1 = new OKRestException(ERR_NESSAGE);
-    private final OKRestException OK_REST_EXCEPTION_2 = new OKRestException(new Error(ERR_NESSAGE));
-    private final OKRestException OK_REST_EXCEPTION_3 = new OKRestException(ERR_CODE, ERR_NESSAGE);
-    private final OKRestException OK_REST_EXCEPTION_4 = new OKRestException(ERR_CODE, ERR_NESSAGE, ERR_DATA);
+    private OKRestException OK_REST_EXCEPTION_1 = new OKRestException(ERR_NESSAGE);
+    private OKRestException OK_REST_EXCEPTION_2 = new OKRestException(new Error(ERR_NESSAGE));
+    private OKRestException OK_REST_EXCEPTION_3 = new OKRestException(ERR_CODE, ERR_NESSAGE);
+    private OKRestException OK_REST_EXCEPTION_4 = new OKRestException(ERR_CODE, ERR_NESSAGE, ERR_DATA);
+
 
     @Test
     void getErrCode() {

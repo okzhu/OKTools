@@ -1,6 +1,6 @@
 package com.github.okzhu.toolkit.base.id;
 
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class IdWorkerTest {
@@ -13,22 +13,22 @@ class IdWorkerTest {
 
     @Test
     void getDataCenterId() {
-        Assert.assertEquals(DATA_CENTER_ID, ID_WORKER.getDataCenterId());
+        Assertions.assertEquals(DATA_CENTER_ID, ID_WORKER.getDataCenterId());
     }
 
     @Test
     void getWorkerId() {
-        Assert.assertEquals(WORKER_ID, ID_WORKER.getWorkerId());
+        Assertions.assertEquals(WORKER_ID, ID_WORKER.getWorkerId());
     }
 
 
     @Test
     void getId() {
-        Assert.assertNotEquals(ID_WORKER.getId(), ID_WORKER.getId());
+        Assertions.assertNotEquals(ID_WORKER.getId(), ID_WORKER.getId());
     }
 
     @Test
     void getIdTimestamp() {
-        System.out.println(ID_WORKER.getIdTimestamp(313505057821822976L));
+        Assertions.assertEquals(1592159830427L, ID_WORKER.getIdTimestamp(313505057821822976L));
     }
 }

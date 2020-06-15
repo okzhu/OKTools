@@ -1,6 +1,7 @@
 package com.github.okzhu.toolkit.base.time;
 
 
+import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.time.DateUtils;
 import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.apache.commons.lang3.time.FastDateFormat;
@@ -25,7 +26,7 @@ import java.util.Date;
  * @see org.apache.commons.lang3.time.FastDateFormat#format(java.util.Date)
  * @see org.apache.commons.lang3.time.FastDateFormat#format(long)
  */
-
+@UtilityClass
 public class DateFormatUtil {
 
     /**
@@ -54,9 +55,6 @@ public class DateFormatUtil {
      */
     public static final FastDateFormat DEFAULT_FORMAT = FastDateFormat.getInstance(PATTERN_DEFAULT);
     public static final FastDateFormat DEFAULT_ON_SECOND_FORMAT = FastDateFormat.getInstance(PATTERN_DEFAULT_ON_SECOND);
-    private DateFormatUtil() {
-        throw new IllegalStateException("Utility class");
-    }
 
     /**
      * 分析日期字符串, 仅用于pattern不固定的情况.

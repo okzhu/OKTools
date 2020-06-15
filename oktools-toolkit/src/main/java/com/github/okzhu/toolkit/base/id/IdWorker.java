@@ -41,10 +41,6 @@ public class IdWorker {
         this(workerId, dataCenterId, 0, 1517414400000L);
     }
 
-//    public IdWorker(long workerId, long dataCenterId, long sequence) {
-//        this(workerId, dataCenterId, sequence, 1517414400000L);
-//    }
-
     public IdWorker(long workerId, long dataCenterId, long sequence, long idEpoch) {
         this.workerId = workerId;
         this.dataCenterId = dataCenterId;

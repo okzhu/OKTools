@@ -4,6 +4,7 @@ package com.github.okzhu.toolkit.base.mapper;
 import com.github.okzhu.toolkit.base.exception.OKBaseException;
 import com.github.okzhu.toolkit.base.type.ListUtil;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
 
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.concurrent.ExecutionException;
  * @author Administrator
  */
 @Log4j2
+@UtilityClass
 public class BeanCopierMapper {
 
     private static IBeanCopier iBeanCopier;
@@ -32,12 +34,6 @@ public class BeanCopierMapper {
             }
         }
     }
-
-
-    private BeanCopierMapper() {
-        throw new IllegalStateException("Utility class");
-    }
-
     @SuppressWarnings("unchecked")
     public static <T> T convert(Object source, Class<T> targetClass) {
         if (source == null) {

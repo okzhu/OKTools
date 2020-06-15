@@ -1,15 +1,14 @@
 package com.github.okzhu.toolkit.base.text;
 
 import com.google.common.io.BaseEncoding;
+import lombok.experimental.UtilityClass;
 
 /**
  * string/url -> hex/base64 编解码工具集(via guava BaseEncoding)
  * @author Administrator
  */
+@UtilityClass
 public class EncodeUtil {
-    private EncodeUtil() {
-        throw new IllegalStateException("Utility class");
-    }
 
     /**
      * Hex编码, 将byte[]编码为String，默认为ABCDEF为大写字母.

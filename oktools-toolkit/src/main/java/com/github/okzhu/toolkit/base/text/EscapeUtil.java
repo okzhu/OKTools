@@ -1,6 +1,7 @@
 package com.github.okzhu.toolkit.base.text;
 
 
+import lombok.experimental.UtilityClass;
 import org.apache.commons.text.StringEscapeUtils;
 
 import java.io.UnsupportedEncodingException;
@@ -10,10 +11,8 @@ import java.net.URLEncoder;
 /**
  * @author Administrator
  */
+@UtilityClass
 public class EscapeUtil {
-    private EscapeUtil() {
-        throw new IllegalStateException("Utility class");
-    }
 
     /**
      * URL 编码, Encode默认为UTF-8.

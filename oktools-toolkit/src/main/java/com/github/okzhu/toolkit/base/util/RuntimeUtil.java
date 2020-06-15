@@ -1,6 +1,7 @@
 package com.github.okzhu.toolkit.base.util;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.StringUtils;
 
 import java.lang.management.ManagementFactory;
@@ -10,13 +11,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * @author Administrator
  */
+@UtilityClass
 public class RuntimeUtil {
-
     private static AtomicInteger shutdownHookThreadIndex = new AtomicInteger(0);
-
-    private RuntimeUtil() {
-        throw new IllegalStateException("Utility class");
-    }
 
     /////// RuntimeMXBean相关 //////
 

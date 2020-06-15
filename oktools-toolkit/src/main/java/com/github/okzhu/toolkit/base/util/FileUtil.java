@@ -4,6 +4,7 @@ import com.github.okzhu.toolkit.base.text.Charsets;
 import com.github.okzhu.toolkit.base.type.Platforms;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.NonNull;
+import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.Validate;
 
@@ -17,6 +18,7 @@ import java.util.List;
  * @author Administrator
  */
 @Log4j2
+@UtilityClass
 public class FileUtil {
     private static final String NOT_FILE = "%s is not exist or not a file";
     private static final String NOT_DIR = "%s is not exist or not a dir";
@@ -37,10 +39,6 @@ public class FileUtil {
             return FileVisitResult.CONTINUE;
         }
     };
-
-    private FileUtil() {
-        throw new IllegalStateException("Utility class");
-    }
 
     //////// 文件读写//////
 

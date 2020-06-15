@@ -6,16 +6,16 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmptyTest {
+class EmptyTest {
 
     @Test
-    public void isEmptyCollection() {
+    void isEmptyCollection() {
         List<Object> list = new ArrayList<Object>();
         Assert.assertTrue(Empty.isEmpty(list));
     }
 
     @Test
-    public void isEmptyCharSequence() {
+    void isEmptyCharSequence() {
         String str = "";
         Assert.assertTrue(Empty.isEmpty(str));
     }

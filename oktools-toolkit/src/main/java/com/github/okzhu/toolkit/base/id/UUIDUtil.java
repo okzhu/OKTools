@@ -1,15 +1,16 @@
 package com.github.okzhu.toolkit.base.id;
 
+import lombok.experimental.UtilityClass;
+
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * @author Administrator
  */
+
+@UtilityClass
 public class UUIDUtil {
-    private UUIDUtil() {
-        throw new IllegalStateException("Utility class");
-    }
 
     /**
      * 返回使用ThreadLocalRandom的UUID，比默认的UUID性能更优

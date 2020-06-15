@@ -15,6 +15,7 @@
 
         <module>tools-netty</module>
         <module>tools-swagger-codegen</module>
+        <module>tools-thrift-api</module>
 
 
     </modules>

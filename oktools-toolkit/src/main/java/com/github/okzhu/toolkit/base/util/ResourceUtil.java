@@ -3,6 +3,7 @@ package com.github.okzhu.toolkit.base.util;
 import com.github.okzhu.toolkit.base.text.Charsets;
 import com.github.okzhu.toolkit.base.type.ListUtil;
 import com.google.common.io.Resources;
+import lombok.experimental.UtilityClass;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,11 +15,10 @@ import java.util.List;
 /**
  * @author Administrator
  */
+@UtilityClass
 public class ResourceUtil {
 
-    private ResourceUtil() {
-        throw new IllegalStateException("Utility class");
-    }
+
     // 打开单个文件////
 
     /**

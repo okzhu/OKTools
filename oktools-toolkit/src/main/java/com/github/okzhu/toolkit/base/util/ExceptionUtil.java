@@ -5,6 +5,7 @@ import com.github.okzhu.toolkit.base.exception.OKBaseException;
 import com.github.okzhu.toolkit.base.exception.OKRestException;
 import com.github.okzhu.toolkit.base.vo.Result;
 import com.google.common.base.Throwables;
+import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
 import java.lang.reflect.UndeclaredThrowableException;
@@ -13,12 +14,9 @@ import java.text.MessageFormat;
 /**
  * @author Administrator
  */
+@UtilityClass
 public class ExceptionUtil {
     private static final StackTraceElement[] EMPTY_STACK_TRACE = new StackTraceElement[0];
-
-    private ExceptionUtil() {
-        throw new IllegalStateException("Utility class");
-    }
 
     ///// Checked/Unchecked及Wrap(如ExecutionException)的转换/////
 
