@@ -104,14 +104,12 @@
                 <executions>
                     <execution>
                         <goals>
-
-                            <!--
-                            <goal>generate</goal>
-                            -->
+                            <!-- <goal>generate</goal>-->
                         </goals>
                         <configuration>
                             <inputSpec>swagger.yaml</inputSpec>
-                            <language>javascript</language>
+                            <language>python</language>
+                            <!--<language>javascript</language>-->
                             <!--<language>php</language>-->
                             <!--<language>java</language>-->
                             <!--<language>typescript-node</language>-->

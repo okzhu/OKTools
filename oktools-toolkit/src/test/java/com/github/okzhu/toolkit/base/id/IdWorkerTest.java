@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 class IdWorkerTest {
 
+
     private long WORKER_ID = 1;
     private long DATA_CENTER_ID = 1;
 
@@ -29,6 +30,5 @@ class IdWorkerTest {
     @Test
     void getIdTimestamp() {
         System.out.println(ID_WORKER.getIdTimestamp(313505057821822976L));
-
     }
 }
