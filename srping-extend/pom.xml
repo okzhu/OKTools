@@ -4,11 +4,19 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.github.okzhu</groupId>
-        <artifactId>oktools-srping-extend</artifactId>
+        <artifactId>oktools-parent</artifactId>
         <version>0.0.1</version>
     </parent>
 
-    <artifactId>tools-netty</artifactId>
+    <artifactId>srping-extend</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+
+        <module>srping-redis</module>
+
+
+    </modules>
 
     <properties>
 
