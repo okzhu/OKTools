@@ -1,12 +1,11 @@
 package com.github.okzhu.toolkit.base.mapper;
 
 
+import com.github.okzhu.lib.cglib.beans.BeanCopier;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
-import net.sf.cglib.beans.BeanCopier;
 
 import java.util.concurrent.ExecutionException;
-
 
 /**
  * @author Administrator

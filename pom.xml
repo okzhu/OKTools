@@ -10,6 +10,7 @@
     <version>0.0.1</version>
 
     <modules>
+        <module>clis-toolkit</module>
         <module>libs-toolkit</module>
         <module>oktools-toolkit</module>
         <module>srping-extend</module>

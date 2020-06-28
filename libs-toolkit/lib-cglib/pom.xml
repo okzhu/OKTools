@@ -12,21 +12,38 @@
 
     <artifactId>lib-cglib</artifactId>
     <version>0.0.1</version>
+    <packaging>jar</packaging>
 
     <properties>
     </properties>
     <dependencies>
 
+        <!--        <dependency>-->
+        <!--            <groupId>cglib</groupId>-->
+        <!--            <artifactId>cglib-nodep</artifactId>-->
+        <!--            <version>3.3.0</version>-->
+        <!--            <optional>true</optional>-->
+        <!--        </dependency>-->
+
+
         <dependency>
             <groupId>cglib</groupId>
-            <artifactId>cglib-nodep</artifactId>
+            <artifactId>cglib</artifactId>
             <version>3.3.0</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>8.0.1</version>
             <optional>true</optional>
         </dependency>
 
     </dependencies>
     <build>
         <plugins>
+
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>jarjar-maven-plugin</artifactId>
@@ -37,16 +54,26 @@
                             <goal>jarjar</goal>
                         </goals>
                     </execution>
+
                 </executions>
                 <configuration>
                     <overwrite>true</overwrite>
                     <includes>
-                        <include>cglib:cglib-nodep</include>
+                        <include>org.ow2.asm:asm</include>
+                        <include>cglib:cglib</include>
                     </includes>
                     <rules>
                         <rule>
+                            <pattern>org.objectweb.asm.*</pattern>
+                            <result>com.github.okzhu.lib.cglib.asm.@1</result>
+                        </rule>
+                        <rule>
+                            <pattern>org.objectweb.asm.**.*</pattern>
+                            <result>com.github.okzhu.lib.cglib.asm.@1.@2</result>
+                        </rule>
+                        <rule>
                             <pattern>net.sf.cglib.**.*</pattern>
-                            <result>com.github.okzhu.lib.cglib.@1.$@2</result>
+                            <result>com.github.okzhu.lib.cglib.@1.@2</result>
                         </rule>
                     </rules>
                 </configuration>

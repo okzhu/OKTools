@@ -1,7 +1,7 @@
 package com.github.okzhu.toolkit.base.mapper;
 
+import com.github.okzhu.lib.cglib.beans.BeanMap;
 import com.google.common.collect.Maps;
-import org.springframework.cglib.beans.BeanMap;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +13,7 @@ public class BeanMapMapper {
 
     private static Lock initLock = new ReentrantLock();
 
-    private static Map<String, BeanMap> beanMaps = new HashMap<String, BeanMap>();
+    private static Map<String, BeanMap> beanMaps = new HashMap<>();
 
     @SuppressWarnings("rawtypes")
     private static BeanMap initBeanMap(Class source) {

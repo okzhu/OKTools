@@ -87,20 +87,30 @@
             <scope>provided</scope>
             <optional>true</optional>
         </dependency>
+
+
         <dependency>
-            <groupId>cglib</groupId>
-            <artifactId>cglib-nodep</artifactId>
-            <version>3.3.0</version>
-            <scope>provided</scope>
-            <optional>true</optional>
+            <groupId>com.github.okzhu</groupId>
+            <artifactId>lib-cglib-v2</artifactId>
+            <!--            <artifactId>lib-cglib</artifactId>-->
+            <version>0.0.1</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>5.2.4.RELEASE</version>
-            <scope>provided</scope>
-            <optional>true</optional>
-        </dependency>
+
+
+        <!--        <dependency>-->
+        <!--            <groupId>cglib</groupId>-->
+        <!--            <artifactId>cglib-nodep</artifactId>-->
+        <!--            <version>3.3.0</version>-->
+        <!--            <scope>provided</scope>-->
+        <!--            <optional>true</optional>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework</groupId>-->
+        <!--            <artifactId>spring-core</artifactId>-->
+        <!--            <version>5.2.4.RELEASE</version>-->
+        <!--            <scope>provided</scope>-->
+        <!--            <optional>true</optional>-->
+        <!--        </dependency>-->
 
     </dependencies>
 
