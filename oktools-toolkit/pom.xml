@@ -91,7 +91,9 @@
 
         <dependency>
             <groupId>com.github.okzhu</groupId>
-            <artifactId>lib-cglib-v2</artifactId>
+            <artifactId>lib-cglib</artifactId>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/../libs-toolkit/lib-cglib/target/lib-cglib-0.0.1.jar</systemPath>
             <!--            <artifactId>lib-cglib</artifactId>-->
             <version>0.0.1</version>
         </dependency>
