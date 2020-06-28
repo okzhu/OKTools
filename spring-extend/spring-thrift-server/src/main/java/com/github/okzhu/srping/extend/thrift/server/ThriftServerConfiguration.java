@@ -1,14 +1,10 @@
 package com.github.okzhu.srping.extend.thrift.server;
 
-import com.yiwill.cloud.framework.thrift.generated.ThriftRPCService;
 import lombok.extern.log4j.Log4j2;
 import org.apache.thrift.TMultiplexedProcessor;
-import org.apache.thrift.TProcessor;
 import org.apache.thrift.protocol.TBinaryProtocol;
 import org.apache.thrift.protocol.TProtocolFactory;
 import org.apache.thrift.server.TServlet;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
@@ -25,9 +21,9 @@ public class ThriftServerConfiguration {
 //    private GeneralServiceImpl generalService;
 
 
-    @Autowired
-    @Qualifier("ThriftRPCService")
-    private ThriftRPCServiceImpl thriftRPCService;
+//    @Autowired
+//    @Qualifier("ThriftRPCService")
+//    private ThriftRPCServiceImpl thriftRPCService;
 
 
 //    @Autowired
@@ -47,9 +43,9 @@ public class ThriftServerConfiguration {
 //        processor.registerProcessor("generalProcessor", generalRpcProcessor);
 
 
-        TProcessor thriftRpcProcessor = new ThriftRPCService.Processor<>(thriftRPCService);
+//        TProcessor thriftRpcProcessor = new ThriftRPCService.Processor<>(thriftRPCService);
 //        TProcessor thriftSpanProcessor = new SpanProcessor(generalRpcProcessor, tracer);
-        processor.registerProcessor("thriftRPCService", thriftRpcProcessor);
+//        processor.registerProcessor("thriftRPCService", thriftRpcProcessor);
 
 
         TServlet tServlet = new TServlet(processor, binaryProtocol);
