@@ -13,7 +13,7 @@
         <module>clis-toolkit</module>
         <module>libs-toolkit</module>
         <module>oktools-toolkit</module>
-        <module>srping-extend</module>
+        <module>spring-extend</module>
     </modules>
 
     <!--        mvn clean verify dependency:analyze project-info-reports:dependencies-->
