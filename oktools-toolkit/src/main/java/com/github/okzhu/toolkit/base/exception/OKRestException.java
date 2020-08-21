@@ -1,13 +1,16 @@
 package com.github.okzhu.toolkit.base.exception;
 
+
+/**
+ * @author Administrator
+ */
+@SuppressWarnings("all")
 public class OKRestException extends OKBaseException {
 
+    private static final long serialVersionUID = 6518216093072960843L;
     private Long errCode = 1000L;
     private String message = "Service unavailable,please contact with administrator";
     private Object data = null;
-
-    private OKRestException() {
-    }
 
     public OKRestException(String message) {
         super(message);
@@ -35,26 +38,13 @@ public class OKRestException extends OKBaseException {
         return errCode;
     }
 
-    public void setErrCode(Long errCode) {
-        this.errCode = errCode;
-    }
-
     @Override
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
     public Object getData() {
         return data;
     }
-
-    public void setData(Object data) {
-        this.data = data;
-    }
-
 
 }

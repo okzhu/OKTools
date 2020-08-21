@@ -10,6 +10,7 @@ import java.util.List;
 
 /**
  * 通用 String 的工具集
+ * @author Administrator
  */
 public class StringUtil {
 
@@ -34,10 +35,9 @@ public class StringUtil {
     }
 
 
-
     /**
      * 高性能的Split，针对char的分隔符号，比JDK String自带的高效.
-     *
+     * <p>
      * copy from Commons Lang 3.5 StringUtils 并做优化
      *
      * @see #split(String, char, int)
@@ -48,22 +48,21 @@ public class StringUtil {
 
     /**
      * 高性能的Split，针对char的分隔符号，比JDK String自带的高效.
-     *
+     * <p>
      * copy from Commons Lang 3.5 StringUtils, 做如下优化:
-     *
+     * <p>
      * 1. 最后不做数组转换，直接返回List.
-     *
+     * <p>
      * 2. 可设定List初始大小.
-     *
+     * <p>
      * 3. preserveAllTokens 取默认值false
      *
      * @param expectParts 预估分割后的List大小，初始化数据更精准
-     *
      * @return 如果为null返回null, 如果为""返回空数组
      */
     public static List<String> split(final String str, final char separatorChar, int expectParts) {
         if (str == null) {
-            return null;
+            return ListUtil.emptyList();
         }
 
         final int len = str.length();
@@ -71,7 +70,7 @@ public class StringUtil {
             return ListUtil.emptyList();
         }
 
-        final List<String> list = new ArrayList<String>(expectParts);
+        final List<String> list = new ArrayList<>(expectParts);
         int i = 0;
         int start = 0;
         boolean match = false;
@@ -95,11 +94,10 @@ public class StringUtil {
 
     /**
      * 使用多个可选的char作为分割符, 还可以设置omitEmptyStrings,trimResults等配置
-     *
+     * <p>
      * 设置后的Splitter进行重用，不要每次创建
      *
      * @param separatorChars 比如Unix/Windows的路径分割符 "/\\"
-     *
      * @see com.google.common.base.Splitter
      */
     public static Splitter charsSplitter(final String separatorChars) {
@@ -141,7 +139,7 @@ public class StringUtil {
 
     /**
      * 判断字符串是否以字母开头
-     *
+     * <p>
      * 如果字符串为Null或空，返回false
      */
     public static boolean startWith(CharSequence s, char c) {
@@ -153,7 +151,7 @@ public class StringUtil {
 
     /**
      * 判断字符串是否以字母结尾
-     *
+     * <p>
      * 如果字符串为Null或空，返回false
      */
     public static boolean endWith(CharSequence s, char c) {
@@ -174,6 +172,7 @@ public class StringUtil {
     }
 
     ///////////// 其他 ////////////
+
     /**
      * 计算字符串被UTF8编码后的字节数 via guava
      *
@@ -185,7 +184,6 @@ public class StringUtil {
         }
         return Utf8.encodedLength(sequence);
     }
-
 
 
 }

@@ -7,6 +7,7 @@ import java.util.Collection;
 
 /**
  *
+ * @author Administrator
  */
 public class Empty {
 

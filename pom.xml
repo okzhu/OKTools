@@ -10,13 +10,10 @@
     <version>0.0.1</version>
 
     <modules>
-
-
+        <module>clis-toolkit</module>
+        <module>libs-toolkit</module>
         <module>oktools-toolkit</module>
-
-        <module>oktools-srping-extend</module>
-
-
+        <module>spring-extend</module>
     </modules>
 
     <!--        mvn clean verify dependency:analyze project-info-reports:dependencies-->
@@ -46,11 +43,14 @@
 
     <properties>
         <jdk.version>1.8</jdk.version>
+
+
         <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.javadoc.plugin.version>3.1.0</maven.javadoc.plugin.version>
         <maven.resources.plugin.version>3.1.0</maven.resources.plugin.version>
-        <sonar.exclusions>src/main/java/com/okzhu/oktools/copyist/**</sonar.exclusions>
+
+        <!--        <sonar.exclusions>src/main/java/com/okzhu/oktools/copyist/**</sonar.exclusions>-->
         <!--ActiveMQXAConnectionFactory-->
     </properties>
 
@@ -73,6 +73,24 @@
             <artifactId>junit-vintage-engine</artifactId>
             <version>5.4.2</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.4.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>annotations</artifactId>
+            <version>3.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>3.0.1</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
@@ -112,6 +130,12 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.0</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>jarjar-maven-plugin</artifactId>
+                <version>1.9</version>
             </plugin>
 
             <plugin>

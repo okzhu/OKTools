@@ -1,8 +1,14 @@
 package com.github.okzhu.toolkit.base.exception;
 
+/**
+ * @author Administrator
+ */
+@SuppressWarnings("all")
 public class OKBaseException extends RuntimeException {
 
-    public OKBaseException() {
+    private static final long serialVersionUID = -600420843373992963L;
+
+    private OKBaseException() {
     }
 
     public OKBaseException(String message) {
@@ -21,6 +27,7 @@ public class OKBaseException extends RuntimeException {
 
     @Override
     public String getMessage() {
-        return super.getCause().getMessage();
+        return (super.getCause() == null ? super.getMessage() : super.getCause().getMessage());
     }
+
 }

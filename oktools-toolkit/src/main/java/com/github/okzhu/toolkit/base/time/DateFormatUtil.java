@@ -1,6 +1,7 @@
 package com.github.okzhu.toolkit.base.time;
 
 
+import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.time.DateUtils;
 import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.apache.commons.lang3.time.FastDateFormat;
@@ -20,29 +21,38 @@ import java.util.Date;
  * <p>
  * 3. 打印时间间隔，如"01:10:10"，以及用户友好的版本，比如"刚刚"，"10分钟前"
  *
+ * @author Administrator
  * @see org.apache.commons.lang3.time.FastDateFormat#parse(String)
  * @see org.apache.commons.lang3.time.FastDateFormat#format(java.util.Date)
  * @see org.apache.commons.lang3.time.FastDateFormat#format(long)
  */
-
+@UtilityClass
 public class DateFormatUtil {
-    // 以T分隔日期和时间，并带时区信息，符合ISO8601规范
+
+    /**
+     * 以T分隔日期和时间，并带时区信息，符合ISO8601规范
+     **/
     public static final String PATTERN_ISO = "yyyy-MM-dd'T'HH:mm:ss.SSSZZ";
     public static final String PATTERN_ISO_ON_SECOND = "yyyy-MM-dd'T'HH:mm:ssZZ";
     public static final String PATTERN_ISO_ON_DATE = "yyyy-MM-dd";
-
-    // 以空格分隔日期和时间，不带时区信息
+    /**
+     * 以空格分隔日期和时间，不带时区信息
+     **/
     public static final String PATTERN_DEFAULT = "yyyy-MM-dd HH:mm:ss.SSS";
     public static final String PATTERN_DEFAULT_ON_SECOND = "yyyy-MM-dd HH:mm:ss";
-
-    // 使用工厂方法FastDateFormat.getInstance(), 从缓存中获取实例
-
-    // 以T分隔日期和时间，并带时区信息，符合ISO8601规范
+    /**
+     * 以T分隔日期和时间，并带时区信息，符合ISO8601规范
+     */
     public static final FastDateFormat ISO_FORMAT = FastDateFormat.getInstance(PATTERN_ISO);
+
+    /**
+     * 使用工厂方法FastDateFormat.getInstance(), 从缓存中获取实例
+     */
     public static final FastDateFormat ISO_ON_SECOND_FORMAT = FastDateFormat.getInstance(PATTERN_ISO_ON_SECOND);
     public static final FastDateFormat ISO_ON_DATE_FORMAT = FastDateFormat.getInstance(PATTERN_ISO_ON_DATE);
-
-    // 以空格分隔日期和时间，不带时区信息
+    /**
+     * 以空格分隔日期和时间，不带时区信息
+     */
     public static final FastDateFormat DEFAULT_FORMAT = FastDateFormat.getInstance(PATTERN_DEFAULT);
     public static final FastDateFormat DEFAULT_ON_SECOND_FORMAT = FastDateFormat.getInstance(PATTERN_DEFAULT_ON_SECOND);
 
@@ -156,7 +166,6 @@ public class DateFormatUtil {
             return String.format("%d分钟前", span / DateUtil.MILLIS_PER_MINUTE);
         }
         // 获取当天00:00
-//        long wee = DateUtil.beginOfDate(new Date(now)).getTime();
         long wee = DateUtils.truncate(new Date(now), Calendar.DATE).getTime();
 
         if (timeStampMillis >= wee) {

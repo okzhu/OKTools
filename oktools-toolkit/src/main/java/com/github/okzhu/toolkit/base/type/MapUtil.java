@@ -4,6 +4,7 @@ import java.util.Map;
 
 /**
  * 通用 Map 的工具集
+ * @author Administrator
  */
 public class MapUtil {
 

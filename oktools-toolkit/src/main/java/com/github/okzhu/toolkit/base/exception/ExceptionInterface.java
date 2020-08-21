@@ -7,6 +7,7 @@ package com.github.okzhu.toolkit.base.exception;
  * <p>
  * 最简单的含义就是。我们定义了一个错误编码 根据错误编码  你直接搜索错误码找到对应的地方有点麻烦
  * 那么我们定义枚举 看这个枚举的这个错误信息用在哪里。直接ide 可以帮你直接找到了。
+ * @author Administrator
  */
 public interface ExceptionInterface {
 

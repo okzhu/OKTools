@@ -1,24 +1,28 @@
 package com.github.okzhu.toolkit.base.id;
 
+import com.github.okzhu.toolkit.base.time.ClockUtil;
+
 import java.security.SecureRandom;
 import java.util.Random;
 
 /**
- * Created by kaiqian.zhu on 2018/2/1.
+ *
+ * @author kaiqian.zhu
+ * @date 2018/2/1
  * 注意 闰秒回拨
  */
 public class IdWorker {
 
-    private static final long workerIdBits = 5L;
-    private static final long datacenterIdBits = 5L;
-    private static final long maxWorkerId = -1L ^ (-1L << workerIdBits);
-    private static final long maxDatacenterId = -1L ^ (-1L << datacenterIdBits);
-    private static final long sequenceBits = 12L;
-    private static final long workerIdShift = sequenceBits;
-    private static final long datacenterIdShift = sequenceBits + workerIdBits;
-    private static final long timestampLeftShift = sequenceBits + workerIdBits + datacenterIdBits;
-    private static final long sequenceMask = -1L ^ (-1L << sequenceBits);
-    private static final Random r = new SecureRandom();
+    private static final long WORKER_ID_BITS = 5L;
+    private static final long DATACENTER_ID_BITS = 5L;
+    private static final long MAX_WORKER_ID = -1L ^ (-1L << WORKER_ID_BITS);
+    private static final long MAX_DATACENTER_ID = -1L ^ (-1L << DATACENTER_ID_BITS);
+    private static final long SEQUENCE_BITS = 12L;
+    private static final long WORKER_ID_SHIFT = SEQUENCE_BITS;
+    private static final long DATACENTER_ID_SHIFT = SEQUENCE_BITS + WORKER_ID_BITS;
+    private static final long TIMESTAMP_LEFT_SHIFT = SEQUENCE_BITS + WORKER_ID_BITS + DATACENTER_ID_BITS;
+    private static final long SEQUENCE_MASK = -1L ^ (-1L << SEQUENCE_BITS);
+    private static final Random R = new SecureRandom();
     private final long workerId;
     private final long dataCenterId;
     private final long idEpoch;
@@ -30,15 +34,11 @@ public class IdWorker {
     }
 
     public IdWorker(long idEpoch) {
-        this(r.nextInt((int) maxWorkerId), r.nextInt((int) maxDatacenterId), 0, idEpoch);
+        this(R.nextInt((int) MAX_WORKER_ID), R.nextInt((int) MAX_DATACENTER_ID), 0, idEpoch);
     }
 
     public IdWorker(long workerId, long dataCenterId) {
         this(workerId, dataCenterId, 0, 1517414400000L);
-    }
-
-    public IdWorker(long workerId, long dataCenterId, long sequence) {
-        this(workerId, dataCenterId, sequence, 1517414400000L);
     }
 
     public IdWorker(long workerId, long dataCenterId, long sequence, long idEpoch) {
@@ -46,10 +46,10 @@ public class IdWorker {
         this.dataCenterId = dataCenterId;
         this.sequence = sequence;
         this.idEpoch = idEpoch;
-        if (workerId < 0 || workerId > maxWorkerId) {
+        if (workerId < 0 || workerId > MAX_WORKER_ID) {
             throw new IllegalArgumentException("workerId is illegal: " + workerId);
         }
-        if (dataCenterId < 0 || dataCenterId > maxDatacenterId) {
+        if (dataCenterId < 0 || dataCenterId > MAX_DATACENTER_ID) {
             throw new IllegalArgumentException("dataCenterId is illegal: " + workerId);
         }
         if (idEpoch >= System.currentTimeMillis()) {
@@ -65,21 +65,18 @@ public class IdWorker {
         return workerId;
     }
 
-    public long getTime() {
-        return System.currentTimeMillis();
-    }
-
     public long getId() {
         return nextId();
     }
 
+    @SuppressWarnings("all")
     private synchronized long nextId() {
         long timestamp = timeGen();
         if (timestamp < lastTimestamp) {
             throw new IllegalStateException("Clock moved backwards.");
         }
         if (lastTimestamp == timestamp) {
-            sequence = (sequence + 1) & sequenceMask;
+            sequence = (sequence + 1) & SEQUENCE_MASK;
             if (sequence == 0) {
                 timestamp = tilNextMillis(lastTimestamp);
             }
@@ -88,9 +85,9 @@ public class IdWorker {
         }
         lastTimestamp = timestamp;
 
-        return ((timestamp - idEpoch) << timestampLeftShift)//
-                | (dataCenterId << datacenterIdShift)//
-                | (workerId << workerIdShift)//
+        return ((timestamp - idEpoch) << TIMESTAMP_LEFT_SHIFT)//
+                | (dataCenterId << DATACENTER_ID_SHIFT)//
+                | (workerId << WORKER_ID_SHIFT)//
                 | sequence;
     }
 
@@ -101,7 +98,7 @@ public class IdWorker {
      * @return the timestamp of id
      */
     public long getIdTimestamp(long id) {
-        return idEpoch + (id >> timestampLeftShift);
+        return idEpoch + (id >> TIMESTAMP_LEFT_SHIFT);
     }
 
     private long tilNextMillis(long lastTimestamp) {
@@ -113,7 +110,7 @@ public class IdWorker {
     }
 
     private long timeGen() {
-        return System.currentTimeMillis();
+        return ClockUtil.currentTimeMillis();
     }
 
 }

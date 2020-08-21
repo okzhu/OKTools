@@ -9,27 +9,10 @@ import java.util.Date;
  * 这个就导致了这个类的主要动机了。
  * <p>
  * 我们系统 所有的 获取时间的在这个类里面来获取。那么我就可以直接通过代码修改时间来测试
+ *
+ * @author Administrator
  **/
 public class ClockUtil {
-
-
-    public interface Clock {
-
-        /**
-         * 系统当前时间
-         */
-        Date currentDate();
-
-        /**
-         * 系统当前时间戳
-         */
-        long currentTimeMillis();
-
-        /**
-         * 操作系统启动到现在的纳秒数，与系统时间是完全独立的两个时间体系
-         */
-        long nanoTime();
-    }
 
 
     private static Clock instance = new DefaultClock();
@@ -93,6 +76,23 @@ public class ClockUtil {
         return instance.nanoTime();
     }
 
+    public interface Clock {
+
+        /**
+         * 系统当前时间
+         */
+        Date currentDate();
+
+        /**
+         * 系统当前时间戳
+         */
+        long currentTimeMillis();
+
+        /**
+         * 操作系统启动到现在的纳秒数，与系统时间是完全独立的两个时间体系
+         */
+        long nanoTime();
+    }
 
     /**
      * 默认时间提供者，返回当前的时间，线程安全。

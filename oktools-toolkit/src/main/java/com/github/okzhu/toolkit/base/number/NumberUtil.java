@@ -2,6 +2,7 @@ package com.github.okzhu.toolkit.base.number;
 
 import com.google.common.primitives.Ints;
 import com.google.common.primitives.Longs;
+import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 
@@ -15,8 +16,11 @@ import java.util.Locale;
  * 2.判断字符串是否数字, 是否16进制字符串(via Common Lang)
  * <p>
  * 3.10机制/16进制字符串 与 原始类型数字/数字对象 的双向转换(参考Common Lang自写)
+ * @author Administrator
  */
+@UtilityClass
 public class NumberUtil {
+
     private static final double DEFAULT_DOUBLE_EPSILON = 0.00001d;
 
     /**

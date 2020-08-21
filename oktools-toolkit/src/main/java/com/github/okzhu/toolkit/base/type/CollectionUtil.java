@@ -4,6 +4,7 @@ import java.util.Collection;
 
 /**
  * 通用 Collection 的工具集
+ * @author Administrator
  */
 public class CollectionUtil {
 

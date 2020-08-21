@@ -1,13 +1,15 @@
 package com.github.okzhu.toolkit.base.mapper;
 
 
+import com.github.okzhu.lib.cglib.beans.BeanCopier;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
-import net.sf.cglib.beans.BeanCopier;
 
 import java.util.concurrent.ExecutionException;
 
-
+/**
+ * @author Administrator
+ */
 public class SfBeanCopier implements IBeanCopier {
 
 
@@ -15,7 +17,7 @@ public class SfBeanCopier implements IBeanCopier {
             .maximumSize(2000)
             .build();
 
-    private static BeanCopier getBeanCopier(Class source, Class target) throws ExecutionException {
+    private static BeanCopier getBeanCopier(Class<?> source, Class<?> target) throws ExecutionException {
 
         String key = source.getName() + "_" + target.getName();
 

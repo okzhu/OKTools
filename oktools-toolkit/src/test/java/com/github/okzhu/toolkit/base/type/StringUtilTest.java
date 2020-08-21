@@ -15,7 +15,7 @@ class StringUtilTest {
 
     @Test
     void isNotEmpty() {
-        String str= "3";
+        String str = "3";
         Assert.assertTrue(StringUtil.isNotEmpty(str));
     }
 }
